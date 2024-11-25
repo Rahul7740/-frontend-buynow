@@ -1,0 +1,42 @@
+{
+    "support":[
+        {
+            "name":"Contact us",
+            "to":"/contectUS"
+        },
+        {
+            "name":"Help center",
+            "to":""
+        },
+        {
+            "name":"Exchanges",
+            "to":""
+        },
+        {
+            "name":"Credit cards",
+            "to":""
+        },
+        {
+            "name":"Debit cards",
+            "to":""
+        }
+    ],
+    "Contact":[
+        {
+            "name":"Facebook",
+            "to":"https://www.facebook.com/"
+        },
+        {
+            "name":"Instagram",
+            "to":"https://www.instagram.com/"
+        },
+        {
+            "name":"Twitter",
+            "to":"https://x.com/?lang=en"
+        },
+        {
+            "name":"Linkedin",
+            "to":"https://in.linkedin.com/"
+        }
+    ]
+}

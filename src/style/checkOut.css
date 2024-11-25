@@ -1,0 +1,135 @@
+.stepper {
+  padding: 45px 60px 20px 30px;
+  background-color: #fafafa;
+  border-radius: 20px;
+}
+.abcd {
+  position: relative;
+}
+.stepper-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #495f6a;
+  position: absolute;
+  white-space: nowrap;
+  text-align: center;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
+.abcd .activeTxt {
+  color: #473358;
+}
+
+.stepper-line {
+  max-width: 314px;
+  width: 100%;
+  height: 4px;
+  background-color: #ece9ee;
+}
+.activeline {
+  background-color: #422659;
+}
+.stepper-line-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.stepper-dots {
+  width: 16.67px;
+  height: 16.67px;
+  border-radius: 50%;
+  border: 1px solid white;
+  outline: 2px solid #495f6a;
+  margin: 10.67px;
+}
+.abcd .activeDot {
+  background-color: #422659;
+  border: 3px solid white;
+  outline: 3px solid #422659;
+}
+.active-shadow {
+  border-radius: 40px;
+  box-shadow: 0px 5px 22px 4px #b0bec51f, 0px 12px 17px 2px #b0bec524,
+    0px 7px 8px -4px #b0bec533;
+}
+@media (max-width: 566px) {
+  .stepper-label {
+    white-space: wrap;
+    font-size: 12px;
+    line-height: 19.92px;
+    letter-spacing: 0.4000000059604645px;
+  }
+  .stepper {
+    padding: 50px 30px 15px 15px;
+  }
+}
+
+/* ======checkout login section======= */
+.checkOut-main-container {
+  margin-top: 40px;
+  display: flex;
+  align-items: start;
+  gap: 24px;
+  justify-content: space-between;
+}
+.checkOut-login-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 760px;
+  width: 100%;
+}
+.checkout-login-types {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  border: 1px solid #ebe9f3;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.checkout-login-types:hover {
+  transform: scale(1.02);
+}
+
+.checkout-login-types div {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.checkout-login-types div h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+  color: #1f292d;
+}
+@media (max-width: 740px) {
+  .checkOut-main-container {
+    margin-top: 20px;
+
+    gap: 15px;
+    flex-direction: column;
+  }
+  .checkout-login-types {
+    padding: 10px 15px;
+  }
+  .checkout-login-types div h3 {
+    font-size: 14px;
+    line-height: 21.98px;
+    letter-spacing: 0.10000000149011612px;
+  }
+  .checkout-login-types div {
+    gap: 10px;
+  }
+  .checkOut-login-section {
+    gap: 10px;
+  }
+  .checkout-login-types:hover {
+    transform: scale(1.02);
+  }
+}

@@ -1,0 +1,237 @@
+.NeedHelp-btn {
+  padding: 6px 16px;
+}
+.NeedHelp-btn h5 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.4000000059604645px;
+}
+.returnOrder-main-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.alert-container {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  padding: 13px 16px;
+  background-color: #fff8e5;
+  border-radius: 10px;
+}
+.alert-container h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #664a00;
+  margin-bottom: 4px;
+}
+.alert-container p {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.02px;
+  letter-spacing: 0.17000000178813934px;
+  color: #664a00;
+}
+.returnInformation-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.returnInformation-container h3 {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+.returnInformation-contents {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  border: 1px solid #574b9b1f;
+  border-radius: 20px;
+}
+.returnInformation-contents div {
+  display: flex;
+  align-items: center;
+}
+.returnInformation-contents div label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+  cursor: pointer;
+}
+.checkbox {
+  position: relative;
+  padding: 12px;
+}
+.checkbox div {
+  background-color: white;
+  border-radius: 4px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #574b9b8a;
+  display: flex;
+}
+.checkbox div::after {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -52%);
+  opacity: 0;
+}
+
+.checkbox input {
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.checkbox input:checked + div {
+  background-color: #574b9b8a;
+  border: 2px solid transparent;
+}
+.checkbox input:checked + div::after {
+  opacity: 1;
+}
+.returnInformation-container textarea {
+  border: 1px solid #574b9b3b;
+  border-radius: 30px;
+  padding: 16px 20px;
+  color: #1f292d;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+}
+.returnInformation-container textarea::placeholder {
+  color: #495f6a;
+}
+.mediaUploader-container {
+  border: 2px dashed #574b9b1f;
+  border-radius: 20px;
+  padding: 20px;
+}
+.upload-div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  width: 100%;
+  padding: 80px;
+  background-color: #fafafa;
+  border-radius: 20px;
+}
+.upload-div img {
+  cursor: pointer;
+}
+.upload-div div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.upload-div div p,
+.upload-div div button {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21.98px;
+  letter-spacing: 0.10000000149011612px;
+  color: #000000;
+}
+
+.upload-div div button {
+  color: #422659;
+}
+.reuten-Order-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.reuten-Order-btns button {
+  max-width: 167px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 26px;
+  letter-spacing: 0.46px;
+}
+
+.reuten-Order-btns .cancel-btn {
+  margin: 0;
+}
+
+@media (max-width: 800px) {
+  .returnInformation-contents {
+    padding: 33px;
+    gap: 15px;
+  }
+  .upload-div {
+    padding: 50px;
+  }
+}
+@media (max-width: 700px) {
+  .returnOrder-main-container {
+    gap: 20px;
+  }
+  .returnInformation-container {
+    gap: 10px;
+  }
+  .mediaUploader-container {
+    border-radius: 15px;
+    padding: 10px;
+  }
+  .returnInformation-contents {
+    grid-template-columns: 1fr;
+  }
+  .upload-div div {
+    align-items: start;
+  }
+  .upload-div {
+    padding: 33px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 530px) {
+  .NeedHelp-btn {
+    width: 100%;
+  }
+  .alert-container h3 {
+    font-size: 14px;
+    line-height: 21.98px;
+    letter-spacing: 0.10000000149011612px;
+  }
+  .alert-container p {
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: 0.4000000059604645px;
+  }
+  .upload-div div p,
+  .upload-div div button {
+    font-weight: 400;
+  }
+  .upload-div div button {
+    font-weight: 500;
+  }
+
+  .returnInformation-contents,
+  .upload-div {
+    padding: 20px;
+  }
+}

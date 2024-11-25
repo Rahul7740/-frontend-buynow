@@ -1,0 +1,65 @@
+[
+    {
+        "name":"Apple Watch Series 6",
+        "img":"filter-product-1.png",
+        "ratting":true,
+        "price":"$ 210.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch SE",
+        "img":"filter-product-2.png",
+        "ratting":true,
+        "price":"$ 320.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch Series 6",
+        "img":"filter-product-3.png",
+        "ratting":true,
+        "price":"$ 108.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch Series 7",
+        "img":"filter-product-4.png",
+        "ratting":true,
+        "price":"$ 158.00",
+        "instock":true
+    },
+    {
+        "name":"Handbag for woman",
+        "img":"filter-product-5.png",
+        "ratting":true,
+        "price":"$ 210.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch SE",
+        "img":"filter-product-6.png",
+        "ratting":true,
+        "price":"$ 150.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch SE",
+        "img":"filter-product-7.png",
+        "ratting":true,
+        "price":"$ 142.00",
+        "instock":true
+    },
+    {
+        "name":"Apple Watch Series 7 ",
+        "img":"filter-product-8.png",
+        "ratting":true,
+        "price":"$ 10.00",
+        "instock":true
+    },
+    {
+        "name":"Apple watch SE",
+        "img":"filter-product-9.png",
+        "ratting":true,
+        "price":"$ 100.00",
+        "instock":true
+    }
+]

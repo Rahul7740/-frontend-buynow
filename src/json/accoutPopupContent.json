@@ -1,0 +1,17 @@
+[
+    {
+        "name":"Account",
+        "to":"/myAccount"
+    },
+    {
+        "name":"Orders",
+        "to":"/myOrders"
+    },
+    {
+        "name":"Wishlist",
+        "to":"/wishList"
+    },
+    {
+        "name":"Logout"
+    }
+]

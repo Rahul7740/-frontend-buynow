@@ -1,0 +1,68 @@
+.product-details-headings {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+  color: #1f292d;
+
+  padding-bottom: 20px;
+}
+.product-information-container {
+  border: 1px solid #42265914;
+  border-radius: 20px;
+  padding: 30px 50px;
+}
+.product-information-container p {
+  font-size: 16px;
+  color: #495f6a;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 0.15px;
+  max-width: 350px;
+  width: 100%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.product-information-container div {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border-bottom: 1px solid #42265914;
+}
+/* ======productDetail-section===== */
+.productDetail-section-para {
+  font-size: 16px;
+  color: #495f6a;
+  line-height: 24px;
+  font-weight: 400;
+  width: 100%;
+}
+
+/* media */
+@media (max-width: 750px) {
+  .product-information-container {
+    padding: 6px 20px;
+  }
+  .product-information-container div {
+    padding: 16px 0;
+  }
+  .product-details-headings {
+    padding-bottom: 14px;
+  }
+  .product-information-container p,
+  .productDetail-section-para {
+    font-size: 14px;
+    line-height: 20.02px;
+    letter-spacing: 0.17000000178813934px;
+  }
+}
+@media (max-width: 480px) {
+  .product-information-container div {
+    padding: 14px 0;
+  }
+}

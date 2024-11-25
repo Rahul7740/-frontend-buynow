@@ -1,0 +1,240 @@
+.myAccount-main-container {
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+}
+.my-account-sections {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #574b9b1f;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+.my-account-sections:hover {
+  box-shadow: 0px 0px 42px 0px #b0bec533, 0px 22px 35px 3px #b0bec524,
+    0px 10px 14px -4px #b0bec533;
+}
+
+.right-arrow path {
+  transition: all 0.3s ease-in-out;
+}
+.my-account-sections:hover .right-arrow path {
+  fill-opacity: 1;
+  transform: scale(1.1);
+}
+
+.my-account-contents {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.my-account-contents div {
+  overflow: hidden;
+  width: 100%;
+}
+
+.my-account-contents div h3 {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+  text-transform: capitalize;
+}
+.my-account-contents div p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #495f6a;
+  margin-top: 10px;
+  white-space: nowrap;
+}
+/* ========profilee css ========= */
+
+.profile-container {
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 15px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #4226590a;
+}
+.profile-container .my-account-contents {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+.profile-img {
+  width: 134px;
+  height: 134px;
+}
+.profile-container span {
+  background-color: #574b9b1f;
+  height: 80px;
+  width: 1px;
+}
+
+.profile-container button {
+  max-width: 156px;
+  background-color: transparent;
+}
+.personal-Information-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.personal-Information-container h3 {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+.personal-Information-container .delivery-A-input-div {
+  gap: 24px;
+}
+.edit-btn {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #422659;
+}
+.personal-inform-btns-container {
+  padding-top: 20px;
+  border-top: 1px solid #574b9b1f;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 20px;
+}
+.personal-inform-btns-container button {
+  max-width: 223px;
+  width: 100%;
+}
+
+
+/* ======media===== */
+@media (max-width: 1000px) {
+  .myAccount-main-container {
+    grid-template-columns: auto;
+  }
+  .my-account-contents-images {
+    width: 75px;
+    height: 75px;
+  }
+  .profile-container .my-account-contents {
+    gap: 40px;
+  }
+  .profile-img {
+    height: 100px;
+    width: 100px;
+  }
+  .personal-Information-container h3 {
+    font-size: 17px;
+    line-height: 26.98px;
+    letter-spacing: 0.13px;
+  }
+
+
+  .personal-Information-container .delivery-A-input-div {
+    gap: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .profile-container {
+    /* gap: 20px; */
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 15px;
+  }
+  .profile-container .my-account-contents {
+    gap: 20px;
+  }
+  .profile-container span {
+    height: 60px;
+  }
+  .profile-img {
+    height: 70px;
+    width: 70px;
+  }
+
+  .my-account-contents div h3 {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.15000000596046448px;
+  }
+  .my-account-contents div p {
+    margin-top: 4px;
+
+    font-size: 12px;
+    line-height: 19.92px;
+    letter-spacing: 0.4000000059604645px;
+  }
+  .my-account-sections {
+    padding: 10px 15px;
+    border-radius: 15px;
+  }
+  .my-account-contents-images {
+    width: 50px;
+    height: 50px;
+  }
+  .profile-container button {
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.46000000834465027px;
+  }
+  .personal-Information-container {
+    gap: 10px;
+  }
+  .personal-inform-btns-container {
+    gap: 10px;
+    padding-top: 10px;
+  }
+
+  .personal-Information-container .delivery-A-input-div {
+    gap: 10px;
+    flex-direction: column;
+  }
+}
+@media (max-width: 600px) {
+  .profile-img {
+    height: 50px;
+    width: 50px;
+  }
+  .profile-container .my-account-contents {
+    flex-direction: column;
+    gap: 8px;
+    align-items: start;
+    width: 100%;
+  }
+  .profile-container {
+    align-items: start;
+    padding: 10px 15px;
+  }
+  .profile-container span {
+    width: 100%;
+    height: 1px;
+  }
+  .personal-Information-container h3 {
+    font-size: 14px;
+    line-height: 21.98px;
+    letter-spacing: 0.10000000149011612px;
+  }
+}
+@media (max-width: 370px) {
+  .personal-inform-btns-container {
+    flex-direction: column;
+  }
+}

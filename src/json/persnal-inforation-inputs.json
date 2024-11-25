@@ -1,0 +1,20 @@
+[
+    {
+        "firstInputType":"text",
+        "firstInputPlaceholder":"Full Name",
+        "secondInputType":"text",
+        "secondInputPlaceholder":"Last Name"
+    },
+    {
+        "firstInputType":"email",
+        "firstInputPlaceholder":"Email Address",
+        "secondInputType":"tel",
+        "secondInputPlaceholder":"Mobile No."
+    },
+    {
+        "firstInputType":"text",
+        "firstInputPlaceholder":"Address",
+        "secondInputType":"text",
+        "secondInputPlaceholder":"Second Address"
+    }
+]

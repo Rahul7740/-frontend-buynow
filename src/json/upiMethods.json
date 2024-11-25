@@ -1,0 +1,22 @@
+[
+    {
+        "img":"upiMethod-img-1.svg",
+        "name":"Phone pay"
+    },
+    {
+        "img":"upiMethod-img-2.svg",
+        "name":"Google pay"
+    },
+    {
+        "img":"upiMethod-img-3.svg",
+        "name":"Paytm"
+    },
+    {
+        "img":"upiMethod-img-4.svg",
+        "name":"Amazon"
+    },
+    {
+        "img":"upiMethod-img-5.svg",
+        "name":"Freerecharge "
+    }
+]

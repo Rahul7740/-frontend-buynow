@@ -1,0 +1,14 @@
+[
+    {
+        "name":"EMI (Month)"
+    },
+    {
+        "name":"Interest (Amount)"
+    },
+    {
+        "name":"Tatal Cost"
+    },
+    {
+        "name":"Status"
+    }
+]

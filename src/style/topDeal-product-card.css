@@ -1,0 +1,89 @@
+.topDeal-product-card {
+  background-color: #4226590a;
+  border: 1px solid #42265914;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.topDeak-prodcut-card-discount {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #ed6c02;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.14000000059604645px;
+  text-align: left;
+  padding: 0 6.5px;
+  border-radius: 64px;
+}
+.topDeal-product-card-img {
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.topDeal-product-card-heading {
+  color: #495f6a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+  padding: 20px 20px 10px 20px;
+  min-height: 78px;
+}
+.topDeal-product-card-price-Buy {
+  padding: 12px 20px 22px 20px;
+  border-top: 1px solid #42265914;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.topDeal-product-card-price-Buy p {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+.prodcut-card-colors-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.prodcut-card-colors-dots span {
+  width: 8px;
+  height: 8px;
+  background-color: gray;
+  border-radius: 30px;
+}
+@media (max-width: 1000px) {
+  .topDeal-product-card-heading {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20.02px;
+    letter-spacing: 0.17000000178813934px;
+    padding: 14px 15px 10px 15px;
+    min-height: 64px;
+  }
+  .topDeal-product-card-price-Buy {
+    padding: 12px 15px 16px 15px;
+  }
+}
+@media (max-width: 530px) {
+  .topDeal-product-card {
+    max-width: 340px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .prodcut-card-colors-dots span {
+    width: 6px;
+    height: 6px;
+  }
+}

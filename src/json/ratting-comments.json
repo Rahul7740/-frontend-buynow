@@ -1,0 +1,23 @@
+[
+    {
+        "name":"Craig Septimus",
+        "dat":"6 July 2021",
+        "img":"comments-profilesPic-1.png",
+        "p":"A mauris amet, et molestie urna ut. Felis, eros varius molestie amet, quisque potenti pharetra aenean. Habitant morbi vehicula cras urna et sit hendrerit nunc aenean. In arcu, egestas tincidunt sem vitae suscipit nisl interdum. Aliquet sed in sit tellus lacus eu dolor vitae sed."  ,
+        "to":""
+    },
+    {
+        "name":"Gretchen Vaccaro",
+        "dat":"8 june 2021",
+        "img":"comments-profilesPic-2.png",
+        "p":"Consequat vitae aliquet volutpat commodo in ut eget. Consectetur id id accumsan eu elit et cursus. Nisi, vel mauris congue in scelerisque eu. Diam mollis purus, pharetra vitae praesent leo urna. Erat urna tellus porttitor id morbi cursus odio in."  ,
+        "to":""
+    },
+    {
+        "name":"Justin Kenter",
+        "dat":"10 may 2021",
+        "img":"comments-profilesPic-3.png",
+        "p":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Amet mauris eget vestibulum tempor, maecenas. Mattis egestas augue vitae in sed ut. Nec donec massa, at scelerisque tempor, elit vitae aliquam. Donec pulvinar sollicitudin feugiat diam iaculis pulvinar faucibus suspendisse tincidunt."  ,
+        "to":""
+    }
+]

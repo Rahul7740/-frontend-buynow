@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Cards(Debit, Credit)",
+        "imges":"debitCredit.svg"
+    },
+    {
+        "name":"UPI Payment",
+        "imges":"upi-icon.svg"
+    },
+    {
+        "name":"NEt Banking",
+        "imges":"netBanking-icon.svg"
+    },
+    {
+        "name":"EMI",
+        "imges":"emi-icon.svg"
+    },
+    {
+        "name":"Cash on delivery",
+        "imges":"cashOnDelivery-icon.svg"
+    }
+]

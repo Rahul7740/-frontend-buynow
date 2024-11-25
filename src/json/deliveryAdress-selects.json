@@ -1,0 +1,22 @@
+[
+    {
+        "head": "City,State",
+        "options": [
+            {"btn": "New York"},
+            {"btn": "Los Angeles"},
+            {"btn": "Chicago"},
+            {"btn": "Houston"},
+            {"btn": "Phoenix"}
+        ]
+    },
+    {
+        "head": "Country",
+        "options": [
+            {"btn": "USA"},
+            {"btn": "Canada"},
+            {"btn": "Mexico"},
+            {"btn": "United Kingdom"},
+            {"btn": "Australia"}
+        ]
+    }
+]

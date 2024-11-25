@@ -1,0 +1,138 @@
+{
+    "Watches":[
+        {
+            "name": "A. display smartwatch",
+            "img": "Products-By-Category-1.png",
+            "ratting": true,
+            "price": "$ 203.00",
+            "new": false
+        },
+        {
+            "name": "Apple watch 6",
+            "img": "Products-By-Category-2.png",
+            "ratting": true,
+            "price": "$ 300.00",
+            "new": true
+        },
+        {
+            "name": "Noise color fit pulse",
+            "img": "Products-By-Category-3.png",
+            "ratting": true,
+            "price": "$ 102.00",
+            "new": false
+        },
+        {
+            "name": "Apple watch 7",
+            "img": "Products-By-Category-4.png",
+            "ratting": true,
+            "price": "$ 222.00",
+            "new": true
+        },
+        {
+            "name": "Smartwatch with alexa",
+            "img": "Products-By-Category-5.png",
+            "ratting": true,
+            "price": "$ 600.00",
+            "new": true
+        },
+        {
+            "name": "smart watch with..",
+            "img": "Products-By-Category-6.png",
+            "ratting": true,
+            "price": "$ 80.00",
+            "new": false
+        },
+        {
+            "name": "Apple watch SE",
+            "img": "Products-By-Category-7.png",
+            "ratting": true,
+            "price": "$ 320.00",
+            "new": false
+        },
+        {
+            "name": "Apple watch 5",
+            "img": "Products-By-Category-8.png",
+            "ratting": true,
+            "price": "$ 185.00",
+            "new": false
+        }
+    ],
+    "Speakers":[
+        {
+            "name": "Bluetooth speaker1",
+            "img": "speaker-product-1.png",
+            "price": "$ 203.00"
+            
+        },
+        {
+            "name": "Ai-speaker",
+            "img": "speaker-product-2.png",
+            "price": "$ 300.00"
+            
+        },
+        {
+            "name": "shony speaker",
+            "img": "speaker-product-3.png",
+            "price": "$ 102.00"
+            
+        },
+        {
+            "name": "Apple speaker",
+            "img": "speaker-product-4.png",
+            "price": "$ 222.00"
+            
+        },
+        {
+            "name": "Bluetooth speaker1",
+            "img": "speaker-product-3.png",
+            "price": "$ 203.00"
+            
+        },
+        {
+            "name": "Ai-speaker",
+            "img": "speaker-product-4.png",
+            "price": "$ 300.00"
+            
+        },
+        {
+            "name": "shony speaker",
+            "img": "speaker-product-2.png",
+            "price": "$ 102.00"
+            
+        },
+        {
+            "name": "Apple speaker",
+            "img": "speaker-product-1.png",
+            "price": "$ 222.00"
+            
+        }
+    ],
+    "Mobiles":[
+
+    ],
+    "Laptops":[
+
+    ],
+    "Tablets":[
+
+    ],
+    "Headphones":[
+
+    ],
+    "Printers":[
+
+    ],
+    "Scanners":[
+
+    ],
+    
+    "Computers":[
+
+    ],
+    "Smart tv.":[
+
+    ],
+    "Monitors":[
+
+    ]
+}

@@ -1,0 +1,224 @@
+.arrival-card {
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  border: 1px solid #f0eef2;
+  border-radius: 20px;
+}
+.arrival-card-imgs {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.arrival-card-imgs img:nth-child(3) {
+  grid-area: 2 / 1 / 3 /3;
+}
+.arrival-card-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.arrival-card-content h3 {
+  font-size: 24px;
+  font-family: "Heebo", sans-serif;
+  font-weight: 500;
+  line-height: 32.02px;
+  letter-spacing: 0.15px;
+}
+.arrivals-products-cards::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.arrivals-products-cards::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.arrivals-products-cards::-webkit-scrollbar-thumb {
+  background-color: #585a5c9f;
+  border-radius: 10px;
+  border: 3px solid #f1f1f1;
+}
+
+/* ==========product-Promotion============ */
+.product-Promotion {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(
+    97.39deg,
+    rgba(66, 38, 89, 0.04) 4.73%,
+    rgba(66, 38, 89, 0) 69.99%
+  );
+
+  border: 1px solid #e4e1ed;
+  border-radius: 20px;
+  padding: 20px 20px 20px 60px;
+}
+.product-Promotion img {
+  mix-blend-mode: color-burn;
+}
+
+.product-Promotion-content {
+  font-weight: 500;
+}
+.product-Promotion-content div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 30px;
+}
+
+.product-Promotion-content h4 {
+  font-size: 48px;
+  font-family: "Heebo", sans-serif;
+
+  color: #422659;
+}
+.product-Promotion-content h3 {
+  font-family: "Heebo", sans-serif;
+
+  font-size: 34px;
+  color: #1f292d;
+}
+.product-Promotion-content p {
+  font-size: 16px;
+  font-weight: 400;
+  color: #495f6a;
+  font-family: "Inter", sans-serif;
+}
+.productPromotion-shop-btn {
+  margin-top: 40px;
+  color: white;
+  font-family: "Inter", sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: #422659;
+  border-radius: 30px;
+  line-height: 26px;
+  letter-spacing: 0.46px;
+  padding: 8px 22px;
+}
+
+/*================== media=========== */
+@media (max-width: 1100px) {
+  .arrivals-products-cards {
+    gap: 18;
+  }
+
+  .product-Promotion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+  .product-Promotion-content h4 {
+    font-size: 35px;
+  }
+  .product-Promotion-content h3 {
+    font-size: 29px;
+  }
+  .product-Promotion-content div {
+    gap: 20px;
+  }
+}
+@media (max-width: 1000px) {
+  .arrival-card-content h3 {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+@media (max-width: 930px) {
+  
+  .arrival-card-content {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .arrival-card {
+    padding: 17px;
+    gap: 17px;
+  }
+  .arrival-card-imgs {
+    border-radius: 10px;
+  }
+  .productPromotion-shop-btn {
+    padding: 5px 15px;
+    font-size: 14px;
+    line-height: 23px;
+    margin-top: 34px;
+  }
+
+  .product-Promotion-content div {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 700px) {
+  .arrivals-products-cards {
+    gap: 15;
+  }
+  .arrival-card-content h3 {
+    font-size: 22px;
+  }
+
+  .product-Promotion {
+    padding: 18px;
+    border-radius: 10px;
+  }
+  .product-Promotion-content {
+    gap: 20px;
+  }
+
+  .product-Promotion-content h4 {
+    font-size: 30px;
+  }
+  .product-Promotion-content h3 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 516px) {
+  .product-Promotion-content h4 {
+    font-size: 24px;
+  }
+  .product-Promotion-content h3 {
+    font-size: 20px;
+  }
+  .arrival-card {
+    padding: 15px;
+    gap: 15px;
+    border-radius: 10px;
+  }
+  .productPromotion-shop-btn {
+    padding: 4px 10px;
+    font-size: 13px;
+    line-height: 22px;
+    margin-top: 28px;
+  }
+  .product-Promotion-content div {
+    gap: 6px;
+  }
+}
+@media (max-width: 370px) {
+  .arrivals-products-cards {
+    gap: 10;
+  }
+  .arrival-card-content h3 {
+    font-size: 20px;
+  }
+
+  .product-Promotion {
+    padding: 15px;
+  }
+  .product-Promotion-content {
+    gap: 10px;
+  }
+}

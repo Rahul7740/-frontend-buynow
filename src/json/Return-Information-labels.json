@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Wrong Product Delivered",
+        "id":"l1"
+    },
+    {
+        "name":"Didn’t Like the Product",
+        "id":"l2"
+    },
+    {
+        "name":"Damaged Product",
+        "id":"l3"
+    },
+    {
+        "name":"Arrived Too Late",
+        "id":"l4"
+    },
+    {
+        "name":"Other Reason",
+        "id":"l5"
+    }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "name": "Hindi",
+    "shortcut": "HI",
+    "image": "hi.svg"
+  },
+  {
+    "name": "English",
+    "shortcut": "EN",
+    "image": "en.svg"
+  },
+  {
+    "name": "Spanish",
+    "shortcut": "ES",
+    "image": "es.svg"
+  },
+  {
+    "name": "French",
+    "shortcut": "FR",
+    "image": "fr.svg"
+  },
+  {
+    "name": "German",
+    "shortcut": "DE",
+    "image": "de.svg"
+  },
+  {
+    "name": "Italian",
+    "shortcut": "IT",
+    "image": "it.svg"
+  },
+  {
+    "name": "Portuguese",
+    "shortcut": "PT",
+    "image": "pt.svg"
+  },
+  {
+    "name": "Russian",
+    "shortcut": "RU",
+    "image": "ru.svg"
+  },
+  {
+    "name": "Dutch",
+    "shortcut": "NL",
+    "image": "nl.svg"
+  },
+  {
+    "name": "Polish",
+    "shortcut": "PL",
+    "image": "pl.svg"
+  },
+  {
+    "name": "Swedish",
+    "shortcut": "SV",
+    "image": "sv.svg"
+  },
+  {
+    "name": "Turkish",
+    "shortcut": "TR",
+    "image": "tr.svg"
+  },
+  {
+    "name": "Thai",
+    "shortcut": "TH",
+    "image": "th.svg"
+  },
+  {
+    "name": "Vietnamese",
+    "shortcut": "VI",
+    "image": "vi.svg"
+  }
+]

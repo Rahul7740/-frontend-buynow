@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Home",
+        "to": "/"
+    },
+    {
+        "name":"Top deals",
+        "to": "/topDeals",
+        "popup":"topDeal"
+    },
+    {
+        "name":"Hot offers",
+        "to": "/hotOffers",
+        "popup":"hotOffer"
+    },
+    {
+        "name":"Pages",
+        "to": "/pages",
+        "popup": 225
+    }
+    
+]

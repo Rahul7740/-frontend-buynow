@@ -1,0 +1,50 @@
+[
+    {
+        "img":"my-account-img-1.png",
+        "name":"Tiana Baptista",
+        "p":"tim.jennings@example.com",
+        "to":"/profile"
+    },
+    {
+        "img":"my-account-img-2.png",
+        "name":"My orders",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-3.png",
+        "name":"Payment",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-4.png",
+        "name":"Chats",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-5.png",
+        "name":"Coupons",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-6.png",
+        "name":"Wishlist",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-7.png",
+        "name":"Login & Security",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    },
+    {
+        "img":"my-account-img-8.png",
+        "name":"Logout",
+        "p":"Lorem ipsum dolor sit amet, consectetur ..",
+        "to":""
+    }
+]

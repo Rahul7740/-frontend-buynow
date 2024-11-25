@@ -1,0 +1,29 @@
+[
+    {
+        "head":"Brand",
+        "p":"Apple",
+        "logo":"apple-logo.svg"
+    },
+    {
+        "head":"Color",
+        "p":"Yellow "
+    },
+    {
+        "head":"Special feature",
+        "p":"Email, GPS, Notifications"
+    },
+    {
+        "head":"Item weight",
+        "p":"30 Grams"
+    },
+    {
+        "head":"Compatible Devices",
+        "p":"Smartphone"
+    },
+    {
+        "head":"Style",
+        "p":"GPS + Cellular",
+        "borderBottom":true
+    }
+
+]

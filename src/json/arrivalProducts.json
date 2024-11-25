@@ -1,0 +1,24 @@
+{
+    "1": [
+        {
+            "img": "arrival-sec-1-img1.png"
+        },
+        {
+            "img": "arrival-sec-1-img2.png"
+        },
+        {
+            "img": "arrival-sec-1-img3.png"
+        }
+    ],
+    "2": [
+        {
+            "img": "arrival-sec-2-img1.png"
+        },
+        {
+            "img": "arrival-sec-2-img2.png"
+        },
+        {
+            "img": "arrival-sec-2-img3.png"
+        }
+    ]
+}

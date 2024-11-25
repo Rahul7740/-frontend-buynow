@@ -1,0 +1,133 @@
+.myOrder-main-container {
+  border: 1px solid #574b9b1f;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: auto;
+  width: 100%;
+}
+.myOrder-main-container::-webkit-scrollbar {
+  display: none;
+}
+
+.myOrder-content-head {
+  display: grid;
+  grid-template-columns: 233px 233px 233px 233px 160px;
+  align-items: center;
+  width: 100%;
+}
+.myOrder-content-head p {
+  padding: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.02px;
+  letter-spacing: 0.17000000178813934px;
+  color: #495f6a;
+  border-bottom: 1px solid #574b9b1f;
+}
+.myOrder-contents {
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 233px 233px 233px 233px 160px;
+  align-items: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 10px;
+}
+.myOrder-contents:hover {
+  background-color: #4226590a;
+}
+.myOrder-contents h4 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.02px;
+  letter-spacing: 0.17000000178813934px;
+  color: #495f6a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px;
+}
+.myOrder-contents h4:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.myOrder-contents p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21.98px;
+  letter-spacing: 0.10000000149011612px;
+  color: #495f6a;
+}
+.status-spans {
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0.1599999964237213px;
+  color: gray;
+  padding: 3px 10px;
+  border: 1px solid;
+  text-align: center;
+  border-radius: 30px;
+}
+.Delivered {
+  color: #2e7d32;
+  border-color: #2e7d3280;
+}
+.Cancelled {
+  color: #d32f2f;
+  border-color: #d32f2f80;
+}
+.Pending {
+  color: #ffb900;
+  border-color: #ffb90080;
+}
+@media (max-width: 1100px) {
+  .myOrder-content-head {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .myOrder-contents {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .myOrder-main-container {
+    padding: 20px;
+    border-radius: 17px;
+    gap: 5px;
+  }
+}
+@media (max-width: 900px) {
+  .myOrder-main-container {
+    padding: 17px;
+  }
+  .myOrder-content-head {
+    grid-template-columns: 200px 200px 200px 200px 140px;
+  }
+  .myOrder-contents {
+    grid-template-columns: 200px 200px 200px 200px 140px;
+  }
+}
+
+@media (max-width: 640px) {
+  .myOrder-main-container {
+    padding: 15px;
+    border-radius: 15px;
+  }
+  .myOrder-content-head {
+    grid-template-columns: 155px 155px 155px 155px 110px;
+  }
+  .myOrder-contents {
+    grid-template-columns: 155px 155px 155px 155px 110px;
+  }
+}
+@media (max-width: 500px) {
+  .myOrder-content-head {
+    grid-template-columns: 120px 120px 120px 120px 80px;
+  }
+  .myOrder-contents {
+    grid-template-columns: 120px 120px 120px 120px 80px;
+  }
+}

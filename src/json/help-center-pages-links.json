@@ -1,0 +1,27 @@
+[
+    {
+        "name":"orders",
+        "to":"",
+        "selected":true
+    },
+    {
+        "name":"billing",
+        "to":"",
+        "selected":false
+    },
+    {
+        "name":"Returns",
+        "to":"",
+        "selected":false
+    },
+    {
+        "name":"Careers",
+        "to":"",
+        "selected":false
+    },
+    {
+        "name":"Others",
+        "to":"",
+        "selected":false
+    }
+]

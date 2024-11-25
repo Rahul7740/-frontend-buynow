@@ -1,0 +1,56 @@
+[
+    {
+        "name":"Lenovo ThinkBook 15 Intel 11th Gen Core",
+        "img":"topDeal-prodcutIMG-1.png",
+        "price":"$ 145.00",
+        "discount":"30% off"
+    },
+    {
+        "name":"Lenovo V15 Intel Celeron N4020..",
+        "img":"topDeal-prodcutIMG-2.png",
+        "price":"$ 10.00",
+        "discount":"99% off"
+    },
+    {
+        "name":"Boat Rockerz 425 Bluetooth Wireless",
+        "img":"topDeal-prodcutIMG-3.png",
+        "price":"$ 166.00",
+        "discount":"14% off"
+    },
+    {
+        "name":"HP 14s, 5th Gen AMD Ryzen 3- 8GB RAM",
+        "img":"topDeal-prodcutIMG-4.png",
+        "price":"$ 240.00",
+        "discount":"12% off"
+    },
+    {
+        "name":"Hp 15S AMD Ryzen 3- 5300U 15.6 Inches",
+        "img":"topDeal-prodcutIMG-5.png",
+        "price":"$ 157.00",
+        "discount":"50% off"
+    },
+    {
+        "name":"Apple iPhone SE (64 GB) - Midnight",
+        "img":"topDeal-prodcutIMG-6.png",
+        "price":"$ 149.00",
+        "discount":"67% off"
+    },
+    {
+        "name":"Apple iPhone 13 Pro Max (128GB)",
+        "img":"topDeal-prodcutIMG-7.png",
+        "price":"$ 180.00",
+        "discount":"22% off"
+    },
+    {
+        "name":"Samsung Galaxy M12 (Blue, 4GB RAM)",
+        "img":"topDeal-prodcutIMG-8.png",
+        "price":"$ 160.00",
+        "discount":"20% off"
+    },
+    {
+        "name":"Redmi 9A Sport (Coral Green, 2GB RAM, 32GB Storage)",
+        "img":"topDeal-prodcutIMG-9.png",
+        "price":"$ 200.00",
+        "discount":"30% off"
+    }
+]

@@ -1,0 +1,45 @@
+{
+  "register": [
+    {
+      "heading": "Create Your Account",
+      "inputs": [
+        {
+          "name": "Your name",
+          "type": "text"
+        },
+        {
+          "name": "Email/Phone no.",
+          "type": "text"
+        },
+        {
+          "name": "password",
+          "type": "password"
+        },
+        {
+          "name": "Confirm password",
+          "type": "password",
+          "eye":true
+        }
+      ],
+      "btnName": "Create account"
+    }
+  ],
+  "login": [
+    {
+      "heading": "Log in to buynow",
+      "inputs": [
+        {
+          "name": "Email/Phone no.",
+          "type": "text"
+        },
+        {
+          "name": "password",
+          "type": "password",
+          "eye":true
+        }
+      ],
+      "btnName": "Log In",
+      "forget": true
+    }
+  ]
+}

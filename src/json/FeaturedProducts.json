@@ -1,0 +1,43 @@
+[
+    {
+        "name":"Headphones BTS",
+        "img":"featured-products-1.png",
+        "ratting":true,
+        "price":"$ 130.00",
+        "new":true
+    },
+    {
+        "name":"Apple watch 2",
+        "img":"featured-products-2.png",
+        "ratting":true,
+        "price":"$ 310.00",
+        "new":true
+    },
+    {
+        "name":"Handbag Civa",
+        "img":"featured-products-3.png",
+        "ratting":true,
+        "price":"$ 800.00",
+        "new":true
+    },
+    {
+        "name":"Apple watch 2",
+        "img":"featured-products-4.png",
+        "ratting":true,
+        "price":"$ 220.00",
+        "new":true
+    },{
+        "name":"Headphones BTS",
+        "img":"featured-products-1.png",
+        "ratting":true,
+        "price":"$ 130.00",
+        "new":true
+    },
+    {
+        "name":"Apple watch 2",
+        "img":"featured-products-2.png",
+        "ratting":true,
+        "price":"$ 310.00",
+        "new":true
+    }
+]

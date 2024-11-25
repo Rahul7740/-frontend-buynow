@@ -1,0 +1,132 @@
+.helpCenter-head {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+.helpCenter-SearchBar {
+  max-width: 368px;
+  width: 100%;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 20px;
+  border: 1px solid #574b9b3b;
+}
+.helpCenter-SearchBar input {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  width: 100%;
+}
+.helpCenter-SearchBar input::placeholder {
+  color: #abb5ba;
+}
+
+.helpCenter-banner {
+  max-width: 1152px;
+  width: 100%;
+  min-height: 170px;
+}
+.res-helpCenter-banner {
+  display: none;
+}
+.help-center-pages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  padding: 0;
+  border-bottom: 1px solid #42265914;
+}
+.help-center-pages::-webkit-scrollbar {
+  content: "";
+}
+
+.helpCenter-Link {
+  min-width: 72px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.4000000059604645px;
+  text-align: center;
+
+  text-transform: uppercase;
+  color: #495f6a;
+  font-weight: 500;
+  padding: 10px 8px;
+  border-bottom: 1px solid transparent;
+}
+.helpCenter-Link-selected {
+  color: #422659;
+  border-bottom: 1px solid #422659;
+}
+.help-center-content {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border: 1px solid #ebe9f3;
+  border-radius: 20px;
+}
+.help-center-para {
+  margin-top: 20px;
+  padding: 8px 16px;
+  color: #495f6a;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+}
+.change-arrow {
+  display: none;
+}
+.displannone {
+  display: none;
+}
+/* ======details summary======= */
+.filter-category {
+  padding: 20px 34px 20px 16px;
+  border-bottom: 1px solid #f0eef2;
+}
+.filter-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  gap: 20px;
+}
+/* ==========media======= */
+@media (max-width: 650px) {
+  .help-center-pages {
+    justify-content: start;
+    margin-bottom: 10px;
+  }
+
+  .help-center-content {
+    margin-top: 20px;
+    padding: 20px;
+  }
+}
+@media (max-width: 530px) {
+  .helpCenter-head{
+    align-items: start;
+  }
+  .help-center-content {
+    padding: 15px;
+  }
+  .helpCenter-banner {
+    display: none;
+  }
+  .res-helpCenter-banner {
+    display: block;
+    width: 100%;
+  }
+}

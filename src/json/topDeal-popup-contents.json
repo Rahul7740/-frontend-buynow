@@ -1,0 +1,272 @@
+{
+  " ": [],
+  "topDeal": [
+    {
+      "name": "Doday’s deals",
+      "btnss": [
+        {
+          "btn": "Mobile phone"
+        },
+        {
+          "btn": "Laptop"
+        },
+        {
+          "btn": "Watches"
+        },
+        {
+          "btn": "Shoes for man"
+        },
+        {
+          "btn": "Shoes girls"
+        },
+        {
+          "btn": "Grooming"
+        }
+      ]
+    },
+    {
+      "name": "Monthly deals",
+      "btnss": [
+        {
+          "btn": "Baby toys"
+        },
+        {
+          "btn": "Sports shoes"
+        },
+        {
+          "btn": "Shoes for man"
+        },
+        {
+          "btn": "Shoes girls"
+        },
+        {
+          "btn": "Gaming"
+        },
+        {
+          "btn": "Toys"
+        }
+      ]
+    },
+    {
+      "name": "All deals",
+      "btnss": [
+        {
+          "btn": "Jeckets"
+        },
+        {
+          "btn": "Tunk"
+        },
+        {
+          "btn": "Jeans pant"
+        },
+        {
+          "btn": "Shirt"
+        },
+        {
+          "btn": "Grooming"
+        },
+        {
+          "btn": "Formal shirt"
+        }
+      ]
+    },
+    {
+      "name": "Memberships deals",
+      "btnss": [
+        {
+          "btn": "Clothing"
+        },
+        {
+          "btn": "All shoes"
+        },
+        {
+          "btn": "Watches"
+        },
+        {
+          "btn": "Jewelry"
+        },
+        {
+          "btn": "Hand bags"
+        },
+        {
+          "btn": "Accessories"
+        }
+      ]
+    }
+  ],
+  "hotOffer": [
+    {
+      "name": "All offers",
+      "btnss": [
+        {
+          "btn": "Shoes for man"
+        },
+        {
+          "btn": "Grooming"
+        },
+        {
+          "btn": "Laptop"
+        },
+        {
+          "btn": "Watches"
+        },
+        {
+          "btn": "Shoes girls"
+        },
+        {
+          "btn": "Grooming"
+        }
+      ]
+    },
+    {
+      "name": "Today offers",
+      "btnss": [
+        {
+          "btn": "Shoes girls"
+        },
+        {
+          "btn": "Shoes for man"
+        },
+        {
+          "btn": "Baby toys"
+        },
+        {
+          "btn": "Gaming"
+        },
+        {
+          "btn": "Toys"
+        },
+        {
+          "btn": "Sports shoes"
+        }
+      ]
+    },
+    {
+      "name": "Monthly offers",
+      "btnss": [
+        {
+          "btn": "Formal shirt"
+        },
+        {
+          "btn": "Jeckets"
+        },
+        {
+          "btn": "Jeans pant"
+        },
+        {
+          "btn": "Shirt"
+        },
+        {
+          "btn": "Grooming"
+        },
+        {
+          "btn": "Tunk"
+        }
+      ]
+    },
+    {
+      "name": "Coming soon offers",
+      "btnss": [
+        {
+          "btn": "Hand bags"
+        },
+        {
+          "btn": "Watches"
+        },
+        {
+          "btn": "Clothing"
+        },
+        {
+          "btn": "All shoes"
+        },
+        {
+          "btn": "Jewellery"
+        },
+        {
+          "btn": "Accessories"
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "name": "Product pages",
+      "btnss": [
+        {
+          "btn": "Left filter"
+        },
+        {
+          "btn": "Right filter"
+        },
+        {
+          "btn": "filter - 1"
+        },
+        {
+          "btn": "filter - 2"
+        },
+        {
+          "btn": "Filter popup"
+        },
+        {
+          "btn": "My wishlist"
+        },
+        {
+          "btn": "Left filter with CTA banner"
+        }
+      ]
+    },
+    {
+      "name": "Product details pages",
+      "btnss": [
+        {
+          "btn": "Product details1"
+        },
+        {
+          "btn": "Product details2"
+        }
+      ]
+    },
+    {
+      "name": "Cart pages",
+      "btnss": [
+        {
+          "btn": "Cart - 1"
+        },
+        {
+          "btn": "Cart - 2"
+        }
+      ]
+    },
+    {
+      "name": "Checkout & Payment ",
+      "btnss": [
+        {
+          "btn": "Product checkout"
+        },
+        {
+          "btn": "Payment card"
+        },
+        {
+          "btn": "Payment with EMI"
+        },
+        {
+          "btn": "Confirm order popup"
+        }
+      ]
+    },
+    {
+      "name": "Other pages",
+      "btnss": [
+        {
+          "btn": "Order details"
+        },
+        {
+          "btn": "Log in "
+        },
+        {
+          "btn": "Register"
+        }
+      ]
+    }
+  ]
+}

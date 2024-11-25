@@ -1,0 +1,167 @@
+.top-deals-products-heading {
+  font-size: 20px;
+  font-weight: 500;
+  font-family: "Heebo", sans-serif;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+.topDeal-top-Products-container {
+  display: flex;
+  gap: 24px;
+  padding: 24px 0;
+  border-top: 1px solid #42265914;
+  border-bottom: 1px solid #42265914;
+  margin-bottom: 24px;
+  overflow: auto;
+}
+.topDeal-top-Products-container::-webkit-scrollbar {
+  display: none;
+}
+.topDeal-top-Products-1 {
+  min-width: 417px;
+  width: 100%;
+  display: inline-flex;
+  align-items: start;
+  justify-content: space-between;
+  background-color: #fef9f9;
+  border-radius: 20px;
+  padding: 20px;
+}
+.topDeal-top-Products-1 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: start;
+}
+.topDeal-top-Products-1 div h3 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+  color: #1f292d;
+  max-width: 172px;
+  width: 100%;
+}
+.topDeal-top-Products-1 div p {
+  color: #495f6a;
+  font-family: "Heebo", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32.02px;
+  text-align: left;
+}
+.top-deal-buy-btn {
+  padding: 6px 16px;
+}
+.top-deal-buy-btn h5 {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.4000000059604645px;
+}
+
+.topProduct-2 {
+  background-color: #f7f1f3;
+}
+.topProduct-2 div h5 {
+  font-family: "Heebo", sans-serif;
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 41.99px;
+  letter-spacing: 0.25px;
+  color: #1f292d;
+  margin-bottom: 10px;
+}
+.topProduct-2 div h6 {
+  font-family: "Heebo", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+.topProduct-2 div p {
+  color: #495f6a;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+}
+@media (max-width: 1100px) {
+  .topDeal-top-Products-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 15px 0;
+    margin-bottom: 15px;
+  }
+  .topDeal-top-Products-1 div h3 {
+    font-size: 15px;
+    letter-spacing: 0.16px;
+  }
+  .topDeal-top-Products-1 div p {
+    font-size: 22px;
+  }
+  .topProduct-2 div h5 {
+    font-size: 28px;
+    line-height: 35.99px;
+  }
+  .topProduct-2 div h6 {
+    font-size: 19px;
+    line-height: 28px;
+  }
+  .topProduct-2 div p {
+    font-size: 15px;
+  }
+  .topDeal-top-Products-1 div {
+    gap: 15px;
+  }
+}
+@media (max-width: 688px) {
+  .topDeal-top-Products-1 div {
+    gap: 10px;
+  }
+  .topDeal-top-Products-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 10px 0;
+    margin-bottom: 10px;
+  }
+  .topDeal-top-Products-1 {
+    min-width: 300px;
+  }
+  .topDeal-top-Products-1 div h3 {
+    font-size: 14px;
+    letter-spacing: 0.17px;
+  }
+  .topDeal-top-Products-1 div p {
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.15px;
+  }
+  .topProduct-2 div h5 {
+    font-size: 25px;
+    line-height: 30.99px;
+    margin-bottom: 5px;
+  }
+  .topProduct-2 div h6 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .topProduct-2 div p {
+    font-size: 14px;
+  }
+  .top-deal-buy-btn h5 {
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.46000000834465027px;
+  }
+}
+@media (max-width: 380px) {
+  .topDeal-top-Products-1 {
+    width: 250px;
+  }
+}

@@ -1,0 +1,213 @@
+.Customer-Reviews-container {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 40px;
+}
+/* ====rattings==== */
+.Customer-Reviews-ratting {
+  max-width: 368px;
+  width: 100%;
+  margin: 0 auto;
+}
+.rating-range-container {
+  border: 1px solid #f0eef2;
+  border-radius: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.rating-range-con-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #42265914;
+}
+.rating-range-con-head p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  color: #1f292d;
+}
+
+.rating-range-con-head div {
+  display: flex;
+  align-items: center;
+  gap: 5.5px;
+  padding-right: 1.5px;
+}
+.rating-rangess {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.rating-rangess-childs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+.rating-rangess-childs p {
+  display: flex;
+  align-items: center;
+  gap: 5.5px;
+  font-size: 14px;
+  line-height: 20.02px;
+  letter-spacing: 0.17px;
+  font-weight: 400;
+  min-width: 31px;
+}
+.rating-rangess-childs div {
+  max-width: 233px;
+  width: 100%;
+  height: 5px;
+  background-color: #eaf2ea;
+  border-radius: 10px;
+  display: flex;
+  overflow: hidden;
+}
+.rating-rangess-childs div span {
+  height: 100%;
+  width: 50%;
+  background-color: #2e7d32;
+}
+.ratting-range-img {
+  padding: 20px;
+  border-radius: 20px;
+  background-color: #f8f7f9;
+  margin-top: 40px;
+}
+/* ====comment==== */
+.Customer-Reviews-comments {
+  max-width: 702px;
+  width: 100%;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-left: 1px solid #f0eef2;
+}
+.Customer-Reviews {
+  border: 1px solid #f0eef2;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Customer-Reviews-profiles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.Customer-Reviews-profiles div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.Customer-Reviews-profiles h3 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15000000596046448px;
+  text-align: left;
+  color: #1f292d;
+}
+.Customer-Reviews-profiles .ratting-div {
+  margin: 0;
+  gap: 0;
+}
+.Customer-Reviews-para {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20.02px;
+  letter-spacing: 0.17000000178813934px;
+  text-align: left;
+  color: #495f6a;
+}
+.helpful-btn-container {
+  text-align: center;
+  padding-top: 10px;
+  border-top: 1px solid #eaf2ea;
+}
+.helpful-btn {
+  font-size: 13px;
+  font-weight: 500;
+  color: #422659;
+  font-family: "Inter", sans-serif;
+  line-height: 22px;
+  letter-spacing: 0.46px;
+  padding: 4px 10px;
+  border: 1px solid #a093ac;
+  border-radius: 50px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.see-all-reviews-btn {
+  margin-top: 20px;
+}
+
+.faq-container {
+  margin: 0;
+}
+/* ====media==== */
+@media (max-width: 900px) {
+  .see-all-reviews-btn {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 710px) {
+  .Customer-Reviews-container {
+    flex-direction: column;
+  }
+  .Customer-Reviews-comments {
+    max-width: 702px;
+    width: 100%;
+    padding-left: 0;
+    border-left: none;
+    gap: 15px;
+  }
+  .rating-range-container {
+    padding: 20px;
+  }
+  .ratting-range-img {
+    border-radius: 15px;
+    margin-top: 40px;
+  }
+  .Customer-Reviews-profiles h3 {
+    font-size: 14px;
+    line-height: 20.02px;
+    letter-spacing: 0.17000000178813934px;
+  }
+  .Customer-Reviews-para {
+    font-size: 12px;
+    line-height: 19.92px;
+    letter-spacing: 0.4000000059604645px;
+  }
+  .Customer-Reviews {
+    border-radius: 15px;
+    padding: 15px;
+  }
+  .see-all-reviews-btn {
+    margin-top: 0px;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .rating-rangess-childs p {
+    line-height: 23.24px;
+    letter-spacing: 0.4px;
+  }
+  .ratting-range-img {
+    margin-top: 10px;
+  }
+  .Customer-Reviews-comments {
+    gap: 10px;
+  }
+
+}

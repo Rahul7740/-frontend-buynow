@@ -1,0 +1,20 @@
+[
+    {
+        "head": "State",
+        "options": [
+            {"btn": "New York"},
+            {"btn": "Los Angeles"},
+            {"btn": "Chicago"},
+            {"btn": "Houston"},
+            {"btn": "Phoenix"}
+        ]
+    },
+    {
+        "head": "Gender",
+        "options": [
+            {"btn": "Male"},
+            {"btn": "Female"},
+            {"btn": "other"}
+        ]
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "img":"netBanking-img-1.svg",
+        "name":"HDFC"
+    },
+    {
+        "img":"netBanking-img-2.svg",
+        "name":"BOI"
+    },
+    {
+        "img":"netBanking-img-3.svg",
+        "name":"ICICI"
+    },
+    {
+        "img":"netBanking-img-4.svg",
+        "name":"Union"
+    },
+    {
+        "img":"netBanking-img-5.svg",
+        "name":"PNB"
+    }
+]

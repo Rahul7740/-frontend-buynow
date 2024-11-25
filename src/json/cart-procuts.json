@@ -1,0 +1,20 @@
+[
+  {
+    "img": "cart-img-1.png",
+    "name": "Apple Watch SE ",
+    "p": "Silver Aluminium Case with Abyss Blue Sport Band - Regular",
+    "shortP":"Silver Aluminium Case with Abyss Blue...",
+    "price":"$320.00",
+    "size":"41mm",
+    "color":"#FFB400"
+  },
+  {
+    "img": "cart-img-2.png",
+    "name": "Apple watch 2",
+    "p": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+    "shortP":"Lorem ipsum dolor sit amet, consectet...",
+    "price":"$210.00",
+    "size":"38mm",
+    "color":"#C4CFD4"
+  }
+]

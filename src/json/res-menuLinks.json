@@ -1,0 +1,53 @@
+[
+    {
+        "name":"Home",
+        "to": "/",
+        "img":"menu-home-icon.svg"
+    },
+    {
+        "name":"Account",
+        "to": "/myAccount",
+        "img":"menu-profile-icon.svg",
+        "clas":true
+    },
+    {
+        "name":"My orders",
+        "to": "/myOrders",
+        "img":"menu-home-icon.svg",
+        "clas":true
+    },
+    {
+        "name":"My Cart",
+        "to": "/cart",
+        "img":"menu-cart-icon.svg",
+        "clas":true
+    },
+    {
+        "name":"Top deals",
+        "to": "/topDeals",
+        "img":"menu-topDeals-icon.svg"
+    },
+    {
+        "name":"Hot offers",
+        "to": "/hotOffers",
+        "img":"menu-hotOffers-icon.svg"
+    },
+    {
+        "name":"Pages",
+        "to": "/pages",
+        "img":"menu-pages-icon.svg"
+    },
+    {
+        "name":"Help center",
+        "to": "/helpCenter",
+        "img":"menu-helpCenter-icon.svg",
+        "clas":true
+    },
+    {
+        "name":"return policy",
+        "to": "/returnOrder",
+        "img":"menu-returnPolicy-icon.svg",
+        "clas":true
+    }
+    
+]
