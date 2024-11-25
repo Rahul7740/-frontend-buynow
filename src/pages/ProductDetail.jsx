@@ -3,17 +3,17 @@ import "../style/productInfomation.css";
 import "../style/Customer-Reviews.css";
 
 import { Fragment } from "react";
-import { json, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SvgPath from "../assets/svg/SvgPath";
 import "../style/productDetail.css";
 import ImgPath from "../assets/images/ImgPath";
 import imagess from "../json/productDetailImgs.json";
-import colorss from "../json/prodcutDetail-colors.json";
-import sizee from "../json/prodcutDetail-size.json";
-import contentess from "../json/productInfor-contents.json";
+// import colorss from "../json/prodcutDetail-colors.json";
+// import sizee from "../json/prodcutDetail-size.json";
+// import contentess from "../json/productInfor-contents.json";
 
 import rangess from "../json/Ratting-ranges.json";
-import comments from "../json/ratting-comments.json";
+// import comments from "../json/ratting-comments.json";
 
 import AllButtons from "../snippets/AllButtons";
 // import ProductInformation from "../productDetails/ProductInformation";
@@ -28,6 +28,7 @@ function ProductDetail() {
 
   const [data, setData] = useState([]);
   const [price, setPrice] = useState("");
+  const [styleNam, setStyleNam] = useState("");
 
   const fetchData = async () => {
     try {
@@ -43,20 +44,19 @@ function ProductDetail() {
       const json = await response.json();
 
       setData(json);
-      setPrice(json.all[json.colors[3]])
+      setStyleNam(json.styleName[0]);
+      setPrice(json.colors[json.colorsSelect[0]]);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   };
 
-  
-
   function colorChange(e) {
-    const d = data.all[e.target.value];
-    setPrice(d)    
+    const d = data.colors[e.target.value];
+    setPrice(d);
+    data.weight = d.weight;
   }
-  console.log(price);
-  
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -85,8 +85,13 @@ function ProductDetail() {
                   src={SvgPath.productDetailLikeBtn}
                   alt="like"
                 />
-                <img src={ImgPath.procutDetailMain} alt="product" />
-                {/* <img src={`http://localhost:5000/api/products/uploads/${data.image}`} alt="product" /> */}
+                {/* <img src={ImgPath.procutDetailMain} alt="product" /> */}
+                <img
+                  className="max-w-full w-full"
+
+                  src={`http://localhost:5000/api/products/uploads/${data.image}`}
+                  alt="product"
+                />
                 <div>
                   <img src={SvgPath.productDetailDelivery} alt="freeDelivery" />
                   <p className="product-detail-para">Free delivered</p>
@@ -123,7 +128,13 @@ function ProductDetail() {
                       src={SvgPath.productDetailLikeBtn}
                       alt="like"
                     />
-                    <img src={ImgPath.procutDetailMain} alt="product" />
+                    {/* <img src={ImgPath.procutDetailMain} alt="product" /> */}
+                    <img
+                      className="max-w-full w-full"
+                      src={`http://localhost:5000/api/products/uploads/${data.image}`}
+                      alt="product"
+                    />
+
                     <div>
                       <img
                         src={SvgPath.productDetailDelivery}
@@ -149,14 +160,14 @@ function ProductDetail() {
               <div className="productDetail-divs">
                 <p className="product-detail-para">Color</p>
                 <form className="productDetail-colors">
-                  {data.colors?.map((i, index) => (
+                  {data.colorsSelect?.map((i, index) => (
                     <Fragment key={index}>
                       <input
                         type="radio"
                         id={index}
                         name="colr"
                         value={i}
-                        defaultChecked
+                        defaultChecked={index === 0 && true}
                         onClick={(e) => {
                           colorChange(e);
                         }}
@@ -182,8 +193,17 @@ function ProductDetail() {
                 <p className="product-detail-para">Style name</p>
                 <div className="productDetail-style">
                   {data.styleName?.map((i, index) => (
-                    <div key={index}>
-                      <Checkbox name="style" id={i} />
+                    <div
+                      key={index}
+                      onClick={() => {
+                        setStyleNam(i);
+                      }}
+                    >
+                      <Checkbox
+                        name="style"
+                        id={i}
+                        checked={index === 0 && true}
+                      />
                       <label htmlFor={i}>{i}</label>
                     </div>
                   ))}
@@ -225,20 +245,36 @@ function ProductDetail() {
         <div className="container">
           <h3 className="product-details-headings">Product Information</h3>
           <div className="product-information-container">
-            {contentess.map((i, index) => (
-              <div
-                key={index}
-                style={{ borderBottom: i.borderBottom && "none" }}
-              >
-                <p style={{ color: "black" }}>{i.head}</p>
-                <p>
-                  {i.logo && (
-                    <img src={require(`../assets/svg/${i.logo}`)} alt="apple" />
-                  )}
-                  {i.p}
-                </p>
-              </div>
-            ))}
+            <div>
+              <p style={{ color: "black" }}>Brand </p>
+              <p>
+                <img
+                  src={require(`../assets/svg/apple-logo.svg`).default}
+                  alt="apple"
+                />
+                Apple
+              </p>
+            </div>
+            <div>
+              <p style={{ color: "black" }}> Color</p>
+              <p>{price.colorName}</p>
+            </div>
+            <div>
+              <p style={{ color: "black" }}>Special feature </p>
+              <p>{data.speacialFeature}</p>
+            </div>
+            <div>
+              <p style={{ color: "black" }}> Item weight</p>
+              <p>{price.weight}</p>
+            </div>
+            <div>
+              <p style={{ color: "black" }}> Compatible Devices</p>
+              <p>{data.conoatibleDevices}</p>
+            </div>
+            <div style={{ borderBottom: "none" }}>
+              <p style={{ color: "black" }}>Style </p>
+              <p>{styleNam}</p>
+            </div>
           </div>
         </div>
       </section>

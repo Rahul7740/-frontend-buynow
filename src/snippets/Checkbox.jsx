@@ -8,6 +8,7 @@ function Checkbox(props) {
         name={props.name}
         id={props.id}
         required
+        defaultChecked={props.checked || false}
       />
       <div></div>
     </span>
