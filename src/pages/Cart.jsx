@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SvgPath from "../assets/svg/SvgPath";
 import "../style/cart.css";
@@ -7,6 +7,7 @@ import RelatedItemYourSearch from "../snippets/RelatedItemYourSearch";
 
 function Cart() {
   // const [quantity, setQuantity] = useState(1);
+  const [data,setData] = useState([])
   function quntityMinus(e) {
     const pElement = e.currentTarget.nextElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
@@ -19,7 +20,28 @@ function Cart() {
     let currentQuantity = Number(pElement.innerHTML);
     pElement.innerHTML = currentQuantity + 1;
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/cart/get", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
+    fetchData();
+  }, []);
+  data.map((i)=>{
+    console.log(i);
+    
+  })
   return (
     <>
       <section className="all-sections">
