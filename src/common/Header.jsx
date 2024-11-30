@@ -4,7 +4,7 @@ import "../style/header.css";
 import "../style/all-popup.css";
 import menuLinks from "../json/menuLInks.json";
 import resMenuLInks from "../json/res-menuLinks.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import searchRecents from "../json/serach-recents.json";
 import language from "../json/languages.json";
 import accoutPopu from "../json/accoutPopupContent.json";
@@ -13,6 +13,11 @@ import AllButtons from "../snippets/AllButtons";
 import AllPopups from "../snippets/AllPopups";
 import { usePopup } from "../contaxt/PopupContext";
 function Header() {
+  // cart products popup
+  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [cartDataLoad, setCartDataLoad] = useState(false);
+
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
   const [languag, setLanguag] = useState("hi.svg");
@@ -22,6 +27,54 @@ function Header() {
     setLanguagPopup(langaugPopup === false ? true : false);
   }
   const { setPopup } = usePopup();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/cart/get", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      }
+    };
+
+    fetchData();
+  }, [cartDataLoad]);
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      const promises = data.map(async (item) => {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/products/getSingleProduct/${item.id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return await response.json();
+        } catch (error) {
+          console.error("Error fetching product data:", error);
+          return null;
+        }
+      });
+
+      const results = await Promise.all(promises);
+      setProducts(results.filter((product) => product !== null));
+    };
+
+    if (data.length > 0) {
+      fetchCartData();
+    }
+  }, [data]);
 
   return (
     <>
@@ -317,22 +370,28 @@ function Header() {
                   src={SvgPath.verticalLine20px}
                   alt="vertical"
                 />
-                <div className="header-cart-btn">
+                <div
+                  className="header-cart-btn"
+                  onMouseOver={() => {
+                    setCartDataLoad(!cartDataLoad);
+                  }}
+                >
                   <Link to={"/cart"}>
                     <img src={SvgPath.headerCartIcon} alt="cart" />
                   </Link>
                   <div className="class"></div>
                   <div className="header-cart-popup">
                     <div className="header-cart-popup-content">
-                      {cartProduct.map((item, index) => (
+                      {products.map((item, index) => (
                         <div key={index} className="header-cart-popup-products">
                           <img
-                            src={require(`../assets/images/${item.img}`)}
+                            className="w-[70px] h-[64px]"
+                            src={`http://localhost:5000/api/products/uploads/${item.image}`}
                             alt="cart-popup-img"
                           />
                           <div>
-                            <h3>{item.name}</h3>
-                            <p>{item.price}</p>
+                            <h3>{item.title}</h3>
+                            <p>{item.colors[item.colorsSelect[0]].price}</p>
                           </div>
                         </div>
                       ))}
@@ -397,7 +456,10 @@ function Header() {
                       ))}
                     </div>
                     <div className="accoutPopup-login-btns">
-                      <Link to={"/login"} style={{ background: "#422659", color: "#FFFFFF" }}>
+                      <Link
+                        to={"/login"}
+                        style={{ background: "#422659", color: "#FFFFFF" }}
+                      >
                         LOG IN
                       </Link>
                       <Link to={"/register"}>SIGN UP</Link>
