@@ -97,6 +97,7 @@ function ProductsFilter() {
   }, []);
   const [data, setData] = useState([]);
 
+  
   return (
     <>
       <div
@@ -373,7 +374,7 @@ function ProductsFilter() {
                       id={item.id}
                       img={item.image}
                       name={item.title}
-                      price={item.price}
+                      price={item.colors[item.colorsSelect[index]].price}
                       designRatting={item.designRatting}
                       new={item.new}
                       designInstock={item.designInstock}

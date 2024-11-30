@@ -15,7 +15,7 @@ function BackendCards(props) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: props.id }),
+        body: JSON.stringify({ id: props.id, price: props.price }),
       });
 
       if (response.ok) {
@@ -67,7 +67,9 @@ function BackendCards(props) {
           <div className="instock-product-content">
             <div className="instock-content-head">
               <Link to={`/productDetail/${props.id}`}>
-                <h3 className="instock-product-name hover:text-[#422659] transition-all">{props.name}</h3>
+                <h3 className="instock-product-name hover:text-[#422659] transition-all">
+                  {props.name}
+                </h3>
               </Link>
               <div className="instock-price-ratting">
                 <p>{props.price}</p>

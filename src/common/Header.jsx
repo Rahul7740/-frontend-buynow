@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import searchRecents from "../json/serach-recents.json";
 import language from "../json/languages.json";
 import accoutPopu from "../json/accoutPopupContent.json";
-import cartProduct from "../json/cart-popup-products.json";
+// import cartProduct from "../json/cart-popup-products.json";
 import AllButtons from "../snippets/AllButtons";
 import AllPopups from "../snippets/AllPopups";
 import { usePopup } from "../contaxt/PopupContext";
@@ -382,19 +382,28 @@ function Header() {
                   <div className="class"></div>
                   <div className="header-cart-popup">
                     <div className="header-cart-popup-content">
-                      {products.map((item, index) => (
-                        <div key={index} className="header-cart-popup-products">
-                          <img
-                            className="w-[70px] h-[64px]"
-                            src={`http://localhost:5000/api/products/uploads/${item.image}`}
-                            alt="cart-popup-img"
-                          />
-                          <div>
-                            <h3>{item.title}</h3>
-                            <p>{item.colors[item.colorsSelect[0]].price}</p>
+                      {data.length > 0 ? (
+                        products.map((item, index) => (
+                          <div
+                            key={index}
+                            className="header-cart-popup-products"
+                          >
+                            <img
+                              className="w-[70px] h-[64px]"
+                              src={`http://localhost:5000/api/products/uploads/${item.image}`}
+                              alt="cart-popup-img"
+                            />
+                            <div>
+                              <h3>{item.title}</h3>
+                              <p>{item.colors[item.colorsSelect[0]].price}</p>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))
+                      ) : (
+                        <h1 className="text-[17px] text-center text-[#422659]">
+                          Your buynow Cart is empty 😟
+                        </h1>
+                      )}
                     </div>
                     <Link to={"/cart"}>
                       <AllButtons name="View Cart" class="cartPopup-btn" />

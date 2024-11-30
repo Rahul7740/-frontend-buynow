@@ -2,29 +2,57 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SvgPath from "../assets/svg/SvgPath";
 import "../style/cart.css";
-import productss from "../json/cart-procuts.json";
+// import productss from "../json/cart-procuts.json";
 import RelatedItemYourSearch from "../snippets/RelatedItemYourSearch";
+import { toast } from "react-toastify";
 
 function Cart() {
   // const [quantity, setQuantity] = useState(1);
   const [data, setData] = useState([]);
   const [products, setProducts] = useState([]);
+  const [reloadData, setReloadData] = useState(false);
+  // const [productPrice, setProductPrice] = useState(0);
   let subtotal = 0;
 
-  function quntityMinus(e) {
-    
+  const updateQuantiy = async (id, qty) => {
+    try {
+      const response = await fetch("http://localhost:5000/api/cart/updateQty", {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: id.id, qty: qty, price: id.colors[id.colorsSelect[0]].price }),
+      });
+      if (response.ok) {
+        const messageData = await response.json();
+        toast.success(messageData.message);
+        setReloadData(!reloadData);        
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
+
+  function quntityMinus(e, id, idx) {
     const pElement = e.currentTarget.nextElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
     if (currentQuantity > 1) {
       pElement.innerHTML = currentQuantity - 1;
+      updateQuantiy(id, pElement.innerHTML);
+      // priceHandle(id, pElement.innerHTML);
     }
   }
-  function quntityPlus(e) {
-    
+  function quntityPlus(e, id, idx) {
     const pElement = e.currentTarget.previousElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
     pElement.innerHTML = currentQuantity + 1;
+    updateQuantiy(id, pElement.innerHTML);
+    // priceHandle(id, pElement.innerHTML);
   }
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -42,7 +70,7 @@ function Cart() {
     };
 
     fetchData();
-  }, []);
+  }, [reloadData]);
 
   useEffect(() => {
     const fetchCartData = async () => {
@@ -74,6 +102,41 @@ function Cart() {
   }, [data]);
 
 
+  const removeItem = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/cart/remove/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        toast.success("Remove successfully");
+        setReloadData(!reloadData);
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
+
+  // function priceHandle(i, qty) {
+  //   const p =
+  //     Number(
+  //       i.colors[i.colorsSelect[0]].price.slice(
+  //         1,
+  //         i.colors[i.colorsSelect[0]].price.length
+  //       )
+  //     ) * qty;
+  //   setProductPrice(p);
+  // }
+  // console.log(productPrice);
+
   return (
     <>
       <section className="all-sections">
@@ -89,92 +152,110 @@ function Cart() {
             </div>
           </div>
           <div className="cart-main-container">
-            {products?.map((i, index) => (
-              <div key={index} className="cart-Products">
-                <div className="cart-product-details-cont">
-                  <div className="cart-products-images">
-                    <img
-                      src={`http://localhost:5000/api/products/uploads/${i.image}`}
-                      alt="cart-img"
-                    />
-                  </div>
-                  <div className="cart-prdt-details">
-                    <div>
-                      <h3>{i.title}</h3>
-                      <p className="cart-paras">{i.description}</p>
-                    </div>
-                    <div className="cart-style-collections">
-                      <div className="style-collections">
-                        <h4>{i.size[0].size}</h4>
-                        <p>Size</p>
-                      </div>
+            {data.length > 0 ? (
+              products?.map((i, index) => (
+                <div key={index} className="cart-Products">
+                  <div className="cart-product-details-cont">
+                    <div className="cart-products-images">
                       <img
-                        className="display-none-950"
-                        src={SvgPath.verticalLine20px}
-                        alt="vertical"
+                        src={`http://localhost:5000/api/products/uploads/${i.image}`}
+                        alt="cart-img"
                       />
-                      <div className="style-collections display-none-950">
-                        <h4>{i.styleName[0]}</h4>
-                        <p>Style</p>
-                      </div>
-                      <img
-                        className="display-none-950"
-                        src={SvgPath.verticalLine20px}
-                        alt="vertical"
-                      />
-                      <div className="style-collections display-none-950">
-                        <span
-                          style={{
-                            background:
-                              i.colorsSelect[Math.round(Math.random() * 3)],
-                          }}
-                          id="color1"
-                        ></span>
-                        <label htmlFor="color1">
-                          <p>Color</p>
-                        </label>
-                      </div>
                     </div>
-                    <div className="cart-products-quantity-cont">
-                      <div className="cart-products-quantity">
-                        <button
-                          onClick={(e) => {
-                            quntityMinus(e);
-                          }}
-                        >
-                          <img src={SvgPath.minus} alt="minus" />
-                        </button>
-                        <span className="w-[26px] sm:w-auto">{data[index].qty}</span>
+                    <div className="cart-prdt-details">
+                      <div>
+                        <h3>{i.title}</h3>
+                        <p className="cart-paras">{i.description}</p>
+                      </div>
+                      <div className="cart-style-collections">
+                        <div className="style-collections">
+                          <h4>{i.size[0].size}</h4>
+                          <p>Size</p>
+                        </div>
+                        <img
+                          className="display-none-950"
+                          src={SvgPath.verticalLine20px}
+                          alt="vertical"
+                        />
+                        <div className="style-collections display-none-950">
+                          <h4>{i.styleName[0]}</h4>
+                          <p>Style</p>
+                        </div>
+                        <img
+                          className="display-none-950"
+                          src={SvgPath.verticalLine20px}
+                          alt="vertical"
+                        />
+                        <div className="style-collections display-none-950">
+                          <span
+                            style={{
+                              background:
+                                i.colorsSelect[Math.round(Math.random() * 3)],
+                            }}
+                            id="color1"
+                          ></span>
+                          <label htmlFor="color1">
+                            <p>Color</p>
+                          </label>
+                        </div>
+                      </div>
+                      <div className="cart-products-quantity-cont">
+                        <div className="cart-products-quantity">
+                          <button
+                            onClick={(e) => {
+                              quntityMinus(e, i, index);
+                            }}
+                          >
+                            <img src={SvgPath.minus} alt="minus" />
+                          </button>
+                          <span className="w-[26px] sm:w-auto">
+                            {data[index]?.qty}
+                          </span>
 
-                        <button
-                          onClick={(e) => {
-                            quntityPlus(e);
-                          }}
-                        >
-                          <img src={SvgPath.plus} alt="plus" />
-                        </button>
+                          <button
+                            onClick={(e) => {
+                              quntityPlus(e, i, index);
+                            }}
+                          >
+                            <img src={SvgPath.plus} alt="plus" />
+                          </button>
+                        </div>
+                        <p>Free shipping</p>
                       </div>
-                      <p>Free shipping</p>
                     </div>
                   </div>
+                  <span className="lineee"></span>
+                  <div className="cart-products-price">
+                    <h2>{`$${data[index]?.price}.00`}</h2>
+                    <h1 className="hidden">
+                      {
+                        (subtotal += Number(data[index]?.price))
+                      }
+                    </h1>
+                    <button
+                      onClick={() => {
+                        removeItem(i.id);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
                 </div>
-                <span className="lineee"></span>
-                <div className="cart-products-price">
-                  <h2>{i.colors[i.colorsSelect[0]].price}</h2>
-                  <h1 className="hidden">
-                    {
-                      (subtotal += parseFloat(
-                        i.colors[i.colorsSelect[0]].price.slice(
-                          1,
-                          i.colors[i.colorsSelect[0]].price.length
-                        )
-                      ))
-                    }
-                  </h1>
-                  <button>Remove</button>
-                </div>
+              ))
+            ) : (
+              <div className="flex items-center justify-center flex-col gap-4">
+                <h1 className="text-[20px] text-center text-[#422659]">
+                  Your buynow Cart is empty 😟
+                </h1>
+                <Link
+                  to={"/productsFilter"}
+                  className="cart-checkOut-btn"
+                  style={{ width: "auto" }}
+                >
+                  add items
+                </Link>
               </div>
-            ))}
+            )}
           </div>
           <div className="cart-EMI-checkOut-container">
             <div className="emi-container">

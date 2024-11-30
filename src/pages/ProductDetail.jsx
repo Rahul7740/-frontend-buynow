@@ -22,6 +22,7 @@ import AllButtons from "../snippets/AllButtons";
 import FAQ from "../productDetails/FAQ";
 import RelatedItemYourSearch from "../snippets/RelatedItemYourSearch";
 import Checkbox from "../snippets/Checkbox";
+import { toast } from "react-toastify";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -30,26 +31,7 @@ function ProductDetail() {
   const [price, setPrice] = useState("");
   const [styleNam, setStyleNam] = useState("");
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/products/getSingleProduct/${id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      const json = await response.json();
-
-      setData(json);
-      setStyleNam(json.styleName[0]);
-      setPrice(json.colors[json.colorsSelect[0]]);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
+ 
 
   function colorChange(e) {
     const d = data.colors[e.target.value];
@@ -58,9 +40,49 @@ function ProductDetail() {
   }
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/products/getSingleProduct/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const json = await response.json();
+  
+        setData(json);
+        setStyleNam(json.styleName[0]);
+        setPrice(json.colors[json.colorsSelect[0]]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
     fetchData();
-  }, []);
+  }, [id]);
 
+  async function handleAddtoCart() {
+    try {
+      const response = await fetch("http://localhost:5000/api/cart/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ id: data.id }),
+      });
+
+      if (response.ok) {
+        toast.success("add-to-cart sucessfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      toast.error("Error submitting the form");
+    }
+  }
   return (
     <>
       <section className="all-sections">
@@ -88,7 +110,6 @@ function ProductDetail() {
                 {/* <img src={ImgPath.procutDetailMain} alt="product" /> */}
                 <img
                   className="max-w-full w-full"
-
                   src={`http://localhost:5000/api/products/uploads/${data.image}`}
                   alt="product"
                 />
@@ -231,10 +252,14 @@ function ProductDetail() {
               </p>
 
               <div className="productDetail-readMore product-Detail-btns">
-                <AllButtons
-                  name="Add to cart"
-                  class="product-detail-addToCart-btn"
-                />
+                <button
+                  className="all-btns product-detail-addToCart-btn"
+                  onClick={() => {
+                    handleAddtoCart();
+                  }}
+                >
+                  <h5 className="all-btn-headings">Add to cart</h5>
+                </button>
                 <AllButtons name="Buy now" class="product-detial-buyNow-btn" />
               </div>
             </div>
@@ -252,7 +277,7 @@ function ProductDetail() {
                   src={require(`../assets/svg/apple-logo.svg`).default}
                   alt="apple"
                 />
-                Apple
+                {data.brand}
               </p>
             </div>
             <div>
