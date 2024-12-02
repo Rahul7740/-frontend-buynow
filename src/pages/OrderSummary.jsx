@@ -1,23 +1,144 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SvgPath from "../assets/svg/SvgPath";
 import productss from "../json/cart-procuts.json";
 import Summary from "../snippets/Summary";
 import "../style/order-Summary.css";
+import { toast } from "react-toastify";
 
 function OrderSummary() {
-  function quntityMinus(e) {
+  // function quntityMinus(e) {
+  //   const pElement = e.currentTarget.nextElementSibling;
+  //   let currentQuantity = Number(pElement.innerHTML);
+  //   if (currentQuantity > 0) {
+  //     pElement.innerHTML = currentQuantity - 1;
+  //   }
+  // }
+  // function quntityPlus(e) {
+  //   const pElement = e.currentTarget.previousElementSibling;
+  //   let currentQuantity = Number(pElement.innerHTML);
+  //   pElement.innerHTML = currentQuantity + 1;
+  // }
+  // const [quantity, setQuantity] = useState(1);
+  const [data, setData] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [reloadData, setReloadData] = useState(false);
+  // const [productPrice, setProductPrice] = useState(0);
+  let subtotal = 0;
+
+  const updateQuantiy = async (id, qty) => {
+    try {
+      const response = await fetch("http://localhost:5000/api/cart/updateQty", {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id.id,
+          qty: qty,
+          price: id.colors[id.colorsSelect[0]].price,
+        }),
+      });
+      if (response.ok) {
+        const messageData = await response.json();
+        toast.success(messageData.message);
+        setReloadData(!reloadData);
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
+
+  function quntityMinus(e, id, idx) {
     const pElement = e.currentTarget.nextElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
-    if (currentQuantity > 0) {
+    if (currentQuantity > 1) {
       pElement.innerHTML = currentQuantity - 1;
+      updateQuantiy(id, pElement.innerHTML);
+      // priceHandle(id, pElement.innerHTML);
     }
   }
-  function quntityPlus(e) {
+  function quntityPlus(e, id, idx) {
     const pElement = e.currentTarget.previousElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
     pElement.innerHTML = currentQuantity + 1;
+    updateQuantiy(id, pElement.innerHTML);
+    // priceHandle(id, pElement.innerHTML);
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/cart/get", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        const json = await response.json();
+        setData(json);
+      } catch (error) {
+        console.error("Error fetching cart data:", error);
+      }
+    };
+
+    fetchData();
+  }, [reloadData]);
+
+  useEffect(() => {
+    const fetchCartData = async () => {
+      const promises = data.map(async (item) => {
+        try {
+          const response = await fetch(
+            `http://localhost:5000/api/products/getSingleProduct/${item.id}`,
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return await response.json();
+        } catch (error) {
+          console.error("Error fetching product data:", error);
+          return null;
+        }
+      });
+
+      const results = await Promise.all(promises);
+      setProducts(results.filter((product) => product !== null));
+    };
+
+    if (data.length > 0) {
+      fetchCartData();
+    }
+  }, [data]);
+
+  const removeItem = async (id) => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/cart/remove/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      if (response.ok) {
+        toast.success("Remove successfully");
+        setReloadData(!reloadData);
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      console.error("Error fetching cart data:", error);
+    }
+  };
 
   return (
     <>
@@ -60,50 +181,76 @@ function OrderSummary() {
             <div className="deliveryAddress-container">
               <h3>Order Summary</h3>
               <div className="orderSummary-Main-container">
-                {productss.map((i, index) => (
-                  <div key={index} className="orderSummary-products">
-                    <div className="orderSummary-imgs">
-                      <img
-                        src={require(`../assets/images/${i.img}`)}
-                        alt="cart-img"
-                      />
-                    </div>
-                    <div className="orderSummary-prdt-details ">
-                      <div className="orderSummary-prdt-heading">
-                        <h3>{i.name}</h3>
-                        <p className="display-block-none-700">{i.p}</p>
-                        <p className="display-none-block-700">{i.shortP}</p>
+                {data.length > 0 ? (
+                  products.map((i, index) => (
+                    <div key={index} className="orderSummary-products">
+                      <div className="orderSummary-imgs">
+                        <img
+                          className="max-h-[120px] 2xl:w-[164px] w-[auto] "
+                          src={`http://localhost:5000/api/products/uploads/${i.image}`}
+                          alt="cart-img"
+                        />
                       </div>
+                      <div className="orderSummary-prdt-details ">
+                        <div className="orderSummary-prdt-heading">
+                          <h3>{i.title}</h3>
+                          <p>{i.description}</p>
+                          {/* <p className="display-none-block-700">{i.shortP}</p> */}
+                        </div>
 
-                      <div className="orderSummary-quantity-container">
-                        <div className="orderSummary-quantity">
-                          <button
-                            onClick={(e) => {
-                              quntityMinus(e);
-                            }}
-                          >
-                            <img src={SvgPath.minus} alt="minus" />
-                          </button>
-                          <p>0</p>
-                          <button
-                            onClick={(e) => {
-                              quntityPlus(e);
-                            }}
-                          >
-                            <img src={SvgPath.plus} alt="plus" />
-                          </button>
-                        </div>
-                        <div className="orderSummary-quantity-controls">
-                          <h3 className="">{i.price}</h3>
-                          <button className="cancel-btn remove-btn">Remove</button>
+                        <div className="orderSummary-quantity-container">
+                          <div className="orderSummary-quantity">
+                            <button
+                              onClick={(e) => {
+                                quntityMinus(e, i, index);
+                              }}
+                            >
+                              <img src={SvgPath.minus} alt="minus" />
+                            </button>
+                            <p>{data[index]?.qty}</p>
+                            <button
+                              onClick={(e) => {
+                                quntityPlus(e, i, index);
+                              }}
+                            >
+                              <img src={SvgPath.plus} alt="plus" />
+                            </button>
+                          </div>
+                          <div className="orderSummary-quantity-controls">
+                            <h3 className="">{`$${data[index]?.price}.00`}</h3>
+                            <h1 className="hidden">
+                              {(subtotal += Number(data[index]?.price))}
+                            </h1>
+                            <button
+                              className="cancel-btn remove-btn"
+                              onClick={() => {
+                                removeItem(i.id);
+                              }}
+                            >
+                              Remove
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
+                  ))
+                ) : (
+                  <div className="flex items-center justify-center flex-col gap-4">
+                    <h1 className="text-[20px] text-center text-[#422659]">
+                      Your buynow Cart is empty 😟
+                    </h1>
+                    <Link
+                      to={"/productsFilter"}
+                      className="cart-checkOut-btn"
+                      style={{ width: "auto" }}
+                    >
+                      add items
+                    </Link>
                   </div>
-                ))}
+                )}
               </div>
             </div>
-            <Summary />
+            <Summary items={data.length} subtotal={subtotal} />
           </div>
         </div>
       </section>

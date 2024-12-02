@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../style/loginRegister.css";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import AllButtons from "../snippets/AllButtons";
 import { toast } from "react-toastify";
 

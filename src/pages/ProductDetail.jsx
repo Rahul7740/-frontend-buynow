@@ -71,6 +71,8 @@ function ProductDetail() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ id: data.id }),
+        body: JSON.stringify({ id: data.id, price: data.colors[data.colorsSelect[0]].price }),
+
       });
 
       if (response.ok) {

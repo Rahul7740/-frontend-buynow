@@ -66,8 +66,8 @@ function PasswordResetOtp() {
           <form className="verifyEmail-contents" onSubmit={handleSubmit}>
             <div>
               <h3 className=" ">
-                Please Check your Email! 
-                 <span className="resetPasswordOtp-heading-span">
+                Please Check your Email!
+                <span className="resetPasswordOtp-heading-span">
                   (Reset Password OTP)
                 </span>
               </h3>
@@ -92,14 +92,20 @@ function PasswordResetOtp() {
               ))}
             </div>
             <div className="verfy-email-btns">
-                <AllButtons
-                  type="submit"
-                  name="Verify"
-                  class="loginRegisterBtn"
-                />
+              <AllButtons
+                type="submit"
+                name="Verify"
+                class="loginRegisterBtn"
+              />
               <div>
                 <p>Don’t have a code? </p>
-                <p style={{ color: "#422659" }} className="resendCOde">
+                <p
+                  style={{ color: "#422659" }}
+                  onClick={() => {
+                    setOtpResendTrigger(!otpResendTrigger);
+                  }}
+                  className="resendCOde"
+                >
                   Resend Code
                 </p>
               </div>
