@@ -54,6 +54,12 @@ function Login() {
 
       if (response.ok) {
         toast.success("Login successfully");
+        const data = await response.json()
+        console.log(data.data);
+        
+        
+        localStorage.setItem("user" , data.data.name)   
+              
         setTimeout(()=>{
           window.location.href = "/"
         },1000)

@@ -97,7 +97,6 @@ function ProductsFilter() {
   }, []);
   const [data, setData] = useState([]);
 
-  
   return (
     <>
       <div
@@ -266,7 +265,12 @@ function ProductsFilter() {
                     alt="downArrow"
                   />
                 </div>
-                <div className="filter-all-contents height-0">.......asdf</div>
+                <div className="filter-all-contents filter-con h-0">
+                  <button>apple</button>
+                  <button>sony</button>
+                  <button>oppo</button>
+                  <button>vivo</button>
+                </div>
               </div>
               {/* =============Customer review-filter============= */}
 
@@ -284,11 +288,14 @@ function ProductsFilter() {
                     alt="downArrow"
                   />
                 </div>
-                <div className="filter-all-contents height-0">......asdf</div>
+                <div className="filter-all-contents filter-con">
+                  <button>good</button>
+                  <button>very-good</button>
+                </div>
               </div>
               {/* =============Discount-filter============= */}
 
-              <div className="filter-all-container">
+              <div className="filter-all-container filterContailr-Border">
                 <div
                   onClick={(e) => {
                     heightControl(e);
@@ -302,7 +309,10 @@ function ProductsFilter() {
                     alt="downArrow"
                   />
                 </div>
-                <div className="filter-all-contents height-0">......asdf</div>
+                <div className="filter-all-contents filter-con">
+                  <button>50%</button>
+                  <button>23%</button>
+                </div>
               </div>
             </div>
             {/* ===============================filter-section end=============================== */}

@@ -487,9 +487,8 @@
   gap: 20px;
   padding: 20px 0;
   border-top: 1px solid #574b9b1f;
-  border-bottom: 1px solid #574b9b1f;
 }
-.accoutPopup-contents a {
+.accoutPopup-contents .accoutPopup-btn {
   padding: 6px 16px;
   font-size: 16px;
   font-weight: 500;
@@ -503,11 +502,11 @@
   border-radius: 20px;
   transition: all 0.1s ease-in-out;
 }
-.accoutPopup-contents a:hover {
+.accoutPopup-contents .accoutPopup-btn:hover {
   background-color: #574b9b0a;
   color: #422659;
 }
-.accoutPopup-contents a:hover .right-arrrow {
+.accoutPopup-contents .accoutPopup-btn:hover .right-arrrow {
   opacity: 1;
 }
 .accoutPopup-login-btns {

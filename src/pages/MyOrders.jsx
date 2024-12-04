@@ -39,7 +39,7 @@ function MyOrders() {
             {myOrderJson["contents"].map((i, index) => (
               i.order.toLowerCase().includes(value)?
               <Link
-                to={"/orderDetails"}
+                to={"/orderDetails/1"}
                 key={index}
                 className="myOrder-contents"
               >

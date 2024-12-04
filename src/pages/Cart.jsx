@@ -190,7 +190,7 @@ function Cart() {
                           <span
                             style={{
                               background:
-                                i.colorsSelect[Math.round(Math.random() * 3)],
+                                i.colorsSelect[index],
                             }}
                             id="color1"
                           ></span>

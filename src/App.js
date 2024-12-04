@@ -32,6 +32,7 @@ import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
+  let user = localStorage.getItem("user");
   return (
     <>
       {/* <Header />
@@ -53,6 +54,7 @@ function App() {
         />
         <ScrollToTop />
         <Header />
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/topDeals" element={<TopDeals />} />
@@ -72,13 +74,19 @@ function App() {
           <Route path="/myOrders" element={<MyOrders />} />
           <Route path="/wishList" element={<WishList />} />
           <Route path="/returnOrder" element={<ReturnOrder />} />
-          <Route path="/orderDetails" element={<OrderDetail />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/verifyEmail" element={<VerifyEmail />} />
-          <Route path="/resetPassword" element={<ResetPassword />} />
-          <Route path="/passwordResetOtp" element={<PasswordResetOtp />} />
-          <Route path="/enterNewPassword" element={<EnterNewPassword />} />
+          <Route path="/orderDetails/:id" element={<OrderDetail />} />
+          {!user ? (
+            <>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/verifyEmail" element={<VerifyEmail />} />
+              <Route path="/resetPassword" element={<ResetPassword />} />
+              <Route path="/passwordResetOtp" element={<PasswordResetOtp />} />
+              <Route path="/enterNewPassword" element={<EnterNewPassword />} />
+            </>
+          ) : (
+            ""
+          )}
         </Routes>
         <Footer />
       </BrowserRouter>

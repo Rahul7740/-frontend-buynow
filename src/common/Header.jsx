@@ -76,6 +76,12 @@ function Header() {
     }
   }, [data]);
 
+  const user = localStorage.getItem("user");
+
+  function logoutfucntion() {
+    localStorage.removeItem("user");
+    window.location.reload()
+  }
   return (
     <>
       <div className="header-top-bar-sectoin ">
@@ -181,10 +187,14 @@ function Header() {
                       <p>{item.name} </p>
                     </NavLink>
                   ))}
-                  <div className="menu-login-signUp-container">
-                    <Link>Log In</Link>
-                    <Link>Sign Up</Link>
-                  </div>
+                  {!user ? (
+                    <div className="menu-login-signUp-container">
+                      <Link to={"/login"}>Log In</Link>
+                      <Link to={"/register"}>Sign Up</Link>
+                    </div>
+                  ) : (
+                    ""
+                  )}
                 </div>
                 <div
                   onClick={() => {
@@ -449,30 +459,61 @@ function Header() {
                         alt="logo"
                       />
                     </div>
-                    <div className="accoutPopup-contents">
-                      {accoutPopu.map((item, index) => (
-                        <Link key={index} to={item.to}>
-                          {item.name}
-                          <img
-                            className="right-arrrow"
-                            src={
-                              require(`../assets/svg/right-victor-perpul.svg`)
-                                .default
-                            }
-                            alt="go"
-                          />
+                    <div
+                      className={`accoutPopup-contents border-b ${
+                        !user ? "border-b-[#574b9b1f]" : "border-b-transparent"
+                      } `}
+                    >
+                      {accoutPopu.map((item, index) =>
+                        item.to ? (
+                          <Link
+                            key={index}
+                            to={item.to}
+                            className="accoutPopup-btn"
+                          >
+                            {item.name}
+                            <img
+                              className="right-arrrow"
+                              src={
+                                require(`../assets/svg/right-victor-perpul.svg`)
+                                  .default
+                              }
+                              alt="go"
+                            />
+                          </Link>
+                        ) : (
+                          <button
+                            className="accoutPopup-btn"
+                            onClick={() => {
+                              logoutfucntion();
+                            }}
+                          >
+                            {item.name}
+                            <img
+                              className="right-arrrow"
+                              src={
+                                require(`../assets/svg/right-victor-perpul.svg`)
+                                  .default
+                              }
+                              alt="go"
+                            />
+                          </button>
+                        )
+                      )}
+                    </div>
+                    {!user ? (
+                      <div className="accoutPopup-login-btns">
+                        <Link
+                          to={"/login"}
+                          style={{ background: "#422659", color: "#FFFFFF" }}
+                        >
+                          LOG IN
                         </Link>
-                      ))}
-                    </div>
-                    <div className="accoutPopup-login-btns">
-                      <Link
-                        to={"/login"}
-                        style={{ background: "#422659", color: "#FFFFFF" }}
-                      >
-                        LOG IN
-                      </Link>
-                      <Link to={"/register"}>SIGN UP</Link>
-                    </div>
+                        <Link to={"/register"}>SIGN UP</Link>
+                      </div>
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
                 <button

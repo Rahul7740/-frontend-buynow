@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../style/orderDetails.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import SvgPath from "../assets/svg/SvgPath";
 import rangeJson from "../json/order-detail-range.json";
 import AllButtons from "../snippets/AllButtons";
 
 function OrderDetail() {
+  const { id } = useParams();
+
+  const [data, setData] = useState([]);
+  const [price, setPrice] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/products/getSingleProduct/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const json = await response.json();
+
+        setData(json);
+        setPrice(json.colors[json.colorsSelect[0]].price);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, [id]);
+  // console.log(data.colors[data.colorsSelect[0]]?.price);
+
   return (
     <section className="all-sections">
       <div className="container">
@@ -20,7 +49,9 @@ function OrderDetail() {
                 Order Details
               </Link>
             </div>
-            <AllButtons name="Buy it again" class="buy-it-again-btn" />
+            <Link to={"/productDetail/1"}>
+              <AllButtons name="Buy it again" class="buy-it-again-btn" />
+            </Link>
           </div>
         </div>
         <div className="orderDetails-main-container">
@@ -37,7 +68,7 @@ function OrderDetail() {
                 />
               </button>
             </div>
-            <h4>
+            <Link to={"/myOrders"}>
               View all orders
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +82,7 @@ function OrderDetail() {
                   fill="white"
                 />
               </svg>
-            </h4>
+            </Link>
           </div>
           <div className="orderDetails-container">
             <div className="ordered-conformed-container">
@@ -75,17 +106,17 @@ function OrderDetail() {
             <div className="orderDetails-detail">
               <div className="orderDetails-product-detail">
                 <div className="orderDetails-product-contents">
-                  <h3>Apple watch SE </h3>
-                  <p>
-                    Silver Aluminium Case with Abyss Blue Sport Band - Regular
-                  </p>
+                  <h3>{data.title}</h3>
+                  <p>{data.description}</p>
                   <h4>
                     Color <span> Black</span>
                   </h4>
-                  <h2>$320.00</h2>
+                  <h2>{price}</h2>
                 </div>
                 <img
-                  src={require(`../assets/images/orderDetail-product-img.png`)}
+                  className="max-h-[194px] max-w-[220px]"
+                  // src={require(`../assets/images/orderDetail-product-img.png`)}
+                  src={`http://localhost:5000/api/products/uploads/${data.image}`}
                   alt="product img"
                 />
               </div>
