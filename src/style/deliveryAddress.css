@@ -35,7 +35,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 5px;
-  color: #1f292d;
+  color: #000000;
 }
 .delivery-a-inputs::placeholder,
 .deliveryAddress-container .select::placeholder,

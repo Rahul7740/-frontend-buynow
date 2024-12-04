@@ -90,7 +90,7 @@ function Register() {
               <Link className="active-btn-login">Register</Link>
             </div>
             {jsonData["register"].map((item, index) => (
-              <form className="loginRegister-Form " onSubmit={handleSubmit}>
+              <form className="loginRegister-Form " key={index} onSubmit={handleSubmit}>
                 <h3>Create Your Account</h3>
                 <input
                   type="text"

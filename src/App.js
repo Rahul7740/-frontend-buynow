@@ -70,7 +70,6 @@ function App() {
           <Route path="/orderSummary" element={<OrderSummary />} />
           <Route path="/paymentOption" element={<PaymentOption />} />
           <Route path="/myAccount" element={<MyAccount />} />
-          <Route path="/profile" element={<Profile />} />
           <Route path="/myOrders" element={<MyOrders />} />
           <Route path="/wishList" element={<WishList />} />
           <Route path="/returnOrder" element={<ReturnOrder />} />
@@ -85,7 +84,7 @@ function App() {
               <Route path="/enterNewPassword" element={<EnterNewPassword />} />
             </>
           ) : (
-            ""
+            <Route path="/profile" element={<Profile />} />
           )}
         </Routes>
         <Footer />

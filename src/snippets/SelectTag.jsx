@@ -2,21 +2,23 @@ import React, { useState } from "react";
 import contectUsSelect from "../json/contectUs-selector.json";
 
 function SelectTag(props) {
-  const [selectText, setSelectText] = useState(props.name);
+  const { name, content, value, onChange } = props;
   const [select, setSelect] = useState(false);
+
   function updateSelect() {
     setSelect(select === false ? true : false);
   }
+
   return (
     <div className="select-container">
       <div
         className="select"
         onClick={updateSelect}
         style={{
-          color: selectText === props.name ? "#495F6A" : "#1f292d",
+          color: value === name ? "#495F6A" : "#1f292d",
         }}
       >
-        {selectText}
+        {value || name}
         <img
           style={{
             transform: select === true ? "rotate(180deg)" : "rotate(0deg)",
@@ -30,15 +32,15 @@ function SelectTag(props) {
           select === true ? "update-select-content" : ""
         }`}
       >
-        {(props.content || contectUsSelect).map((item, index) => (
+        {(content || contectUsSelect).map((item, index) => (
           <button
             onClick={() => {
-              setSelectText(item.btn);
+              onChange(item.btn); // Update parent state with selected value
               setSelect(false);
             }}
             type="button"
             key={index}
-            defaultValue={item.btn}
+            value={item.btn}
           >
             {item.btn}
           </button>

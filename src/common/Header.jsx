@@ -77,10 +77,10 @@ function Header() {
   }, [data]);
 
   const user = localStorage.getItem("user");
-
+  
   function logoutfucntion() {
     localStorage.removeItem("user");
-    window.location.reload()
+    window.location.reload();
   }
   return (
     <>
@@ -483,6 +483,7 @@ function Header() {
                           </Link>
                         ) : (
                           <button
+                            key={index}
                             className="accoutPopup-btn"
                             onClick={() => {
                               logoutfucntion();

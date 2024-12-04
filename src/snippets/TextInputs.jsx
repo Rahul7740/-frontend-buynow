@@ -7,6 +7,7 @@ function TextInputs(props) {
       placeholder={props.name}
       type={props.type || "text"}
       id={props.id}
+      readOnly={props.readOnly || false}
     />
   );
 }
