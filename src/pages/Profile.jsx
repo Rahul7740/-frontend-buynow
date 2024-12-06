@@ -11,9 +11,10 @@ import { toast } from "react-toastify";
 
 function Profile() {
   let localStorage_User = JSON.parse(localStorage.getItem("user"));
-
+  const [profilePopup, setProfilePopup] = useState(false);
   const [edit, setEdit] = useState(false);
   const [user, setUser] = useState("");
+  const [dataReload, setDataReload] = useState(false);
   useEffect(() => {
     let id = JSON.parse(localStorage.getItem("user"));
     const fetchData = async () => {
@@ -44,7 +45,7 @@ function Profile() {
       }
     };
     fetchData();
-  }, []);
+  }, [dataReload]);
 
   // ====backend=========
   const intidata = {
@@ -107,36 +108,43 @@ function Profile() {
       [head]: value, // Update the selected value for the specific "head"
     }));
   };
+  const [profile, setPofile] = useState("");
+  function selectProfile(e) {
+    const file = e.target.files[0];
+    setPofile(file);
+  }
   const uploadImage = async (e) => {
-    
-    // try {
-    //   const response = await fetch(
-    //     "http://localhost:5000/api/user/uploadProfile",
-    //     {
-    //       method: "post",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
+    try {
+      if (!profile) {
+        toast.error("No file selected");
+        return;
+      }
 
-    //       body: JSON.stringify({
-    //         email: localStorage_User.email,
-    //         image: e.target.value,
-    //       }),
-    //     }
-    //   );
+      const formData = new FormData();
+      formData.append("email", localStorage_User.email);
+      formData.append("profile", profile);
 
-    //   if (response.ok) {
-    //     toast.success("upload successfully");
-    //   } else {
-    //     const errorData = await response.json();
-    //     toast.error(`${errorData.error || "Unknown error"}`);
-    //   }
-    // } catch (error) {
-    //   toast.error("Error submitting the form");
-    // }
+      const response = await fetch(
+        "http://localhost:5000/api/user/uploadProfile",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
+
+      if (response.ok) {
+        toast.success("Upload successful");
+        setDataReload(!dataReload);
+        setProfilePopup(false);
+      } else {
+        const errorData = await response.json();
+        toast.error(`${errorData.error || "Unknown error"}`);
+      }
+    } catch (error) {
+      toast.error("Error submitting the form");
+    }
   };
 
- 
   return (
     <section className="all-sections">
       <div className="container">
@@ -160,7 +168,7 @@ function Profile() {
           <div className="profile-container">
             {user?.profile ? (
               <img
-                className="profile-img w-[134px] h-[134px] rounded-full"
+                className="profile-img w-[134px] h-[134px] rounded-full object-cover overflow-hidden"
                 src={`http://localhost:5000/api/products/uploads/${user?.profile}`}
                 alt="profile.img"
               />
@@ -178,20 +186,44 @@ function Profile() {
               <span></span>
               <button
                 onClick={() => {
-                  uploadImage();
+                  setProfilePopup(true);
                 }}
                 className="saveAddress-btn"
               >
                 Chose Image
               </button>
-              <input
-                type="file"
-                onChange={(e) => {
-                  uploadImage(e);
-                }}
-                id="myfile"
-                name="myfile"
-              />
+              <div
+                className={`fixed top-2/4 left-2/4 z-50 -translate-x-2/4 -translate-y-2/4  ${
+                  profilePopup ? "inline-flex" : "hidden"
+                } w-auto items-center justify-center bg-white max-w-[400px] p-10 gap-10 flex-col rounded-md shadow-2xl border border-black`}
+              >
+                <button
+                  className="w-[20px] h-5 absolute top-3 right-3"
+                  onClick={() => {
+                    setProfilePopup(false);
+                  }}
+                >
+                  <img
+                    src={require("../assets/svg/close-btn.svg").default}
+                    alt="close"
+                  />
+                </button>
+                <input
+                  type="file"
+                  onChange={(e) => {
+                    selectProfile(e);
+                  }}
+                  id="myfile"
+                  name="myfile"
+                />
+                <button
+                  className="saveAddress-btn"
+                  type="button"
+                  onClick={uploadImage}
+                >
+                  Submit
+                </button>
+              </div>
             </div>
           </div>
           <form
@@ -286,20 +318,31 @@ function Profile() {
             ) : (
               <>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">{user?.firstName}</p>
-                  <p className="delivery-a-inputs">{user?.lastName}</p>
+                  <p className="delivery-a-inputs">
+                    {user?.firstName || "firstName"}
+                  </p>
+                  <p className="delivery-a-inputs">
+                    {user?.lastName || "lastName"}
+                  </p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs"> {user?.email}</p>
-                  <p className="delivery-a-inputs"> {user.mobileNo}</p>
+                  <p className="delivery-a-inputs"> {user?.email || "email"}</p>
+                  <p className="delivery-a-inputs">
+                    {" "}
+                    {user.mobileNo || "mobile"}
+                  </p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">{user.address}</p>
-                  <p className="delivery-a-inputs">{user.secondAddress}</p>
+                  <p className="delivery-a-inputs">
+                    {user.address || "address"}
+                  </p>
+                  <p className="delivery-a-inputs">
+                    {user.secondAddress || "secondAddress"}
+                  </p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs"> {user.State}</p>
-                  <p className="delivery-a-inputs"> {user.Gender}</p>
+                  <p className="delivery-a-inputs"> {user.State || "State"}</p>
+                  <p className="delivery-a-inputs">{user.Gender || "gender"}</p>
                 </div>
               </>
             )}
