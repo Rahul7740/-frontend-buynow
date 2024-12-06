@@ -30,6 +30,15 @@ function Profile() {
         const json = await response.json();
 
         setUser(json);
+        setSelectedValues({ State: json?.State, Gender: json?.Gender });
+        setFormData({
+          firstName: json?.firstName,
+          lastName: json?.lastName,
+          email: localStorage_User.email,
+          mobileNo: json?.mobileNo,
+          address: json?.address,
+          secondAddress: json?.secondAddress,
+        });
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -41,15 +50,13 @@ function Profile() {
   const intidata = {
     firstName: user?.firstName,
     lastName: user?.lastName,
-    email: user.email,
+    email: localStorage_User.email,
     mobileNo: user?.mobileNo,
     address: user?.address,
     secondAddress: user?.secondAddress,
   };
 
   const [formData, setFormData] = useState(intidata);
-
-  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,15 +65,13 @@ function Profile() {
       ...prevData,
       [name]: value,
     }));
-    
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(!loading);
 
     try {
-      let data = Object.assign({}, formData, selectedValues) 
+      let data = Object.assign({}, formData, selectedValues);
       const response = await fetch(
         "http://localhost:5000/api/user/updateAllData",
         {
@@ -74,7 +79,7 @@ function Profile() {
           headers: {
             "Content-Type": "application/json",
           },
-    
+
           body: JSON.stringify(data),
         }
       );
@@ -82,15 +87,13 @@ function Profile() {
       if (response.ok) {
         toast.success("update successfully");
         setEdit(false);
-        setFormData(intidata);
+        // setFormData(intidata);
       } else {
         const errorData = await response.json();
         toast.error(`${errorData.error || "Unknown error"}`);
       }
     } catch (error) {
       toast.error("Error submitting the form");
-    } finally {
-      setLoading(!loading);
     }
   };
   const [selectedValues, setSelectedValues] = useState({
@@ -104,6 +107,36 @@ function Profile() {
       [head]: value, // Update the selected value for the specific "head"
     }));
   };
+  const uploadImage = async (e) => {
+    
+    // try {
+    //   const response = await fetch(
+    //     "http://localhost:5000/api/user/uploadProfile",
+    //     {
+    //       method: "post",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+
+    //       body: JSON.stringify({
+    //         email: localStorage_User.email,
+    //         image: e.target.value,
+    //       }),
+    //     }
+    //   );
+
+    //   if (response.ok) {
+    //     toast.success("upload successfully");
+    //   } else {
+    //     const errorData = await response.json();
+    //     toast.error(`${errorData.error || "Unknown error"}`);
+    //   }
+    // } catch (error) {
+    //   toast.error("Error submitting the form");
+    // }
+  };
+
+ 
   return (
     <section className="all-sections">
       <div className="container">
@@ -125,10 +158,10 @@ function Profile() {
         </div>
         <div className="profile-main-container">
           <div className="profile-container">
-            {localStorage_User?.profile ? (
+            {user?.profile ? (
               <img
-                className="profile-img"
-                src={require(`../assets/images/my-account-img-1.png`)}
+                className="profile-img w-[134px] h-[134px] rounded-full"
+                src={`http://localhost:5000/api/products/uploads/${user?.profile}`}
                 alt="profile.img"
               />
             ) : (
@@ -143,7 +176,22 @@ function Profile() {
                 <p>{localStorage_User?.email}</p>
               </div>
               <span></span>
-              <button className="saveAddress-btn">Chose Image</button>
+              <button
+                onClick={() => {
+                  uploadImage();
+                }}
+                className="saveAddress-btn"
+              >
+                Chose Image
+              </button>
+              <input
+                type="file"
+                onChange={(e) => {
+                  uploadImage(e);
+                }}
+                id="myfile"
+                name="myfile"
+              />
             </div>
           </div>
           <form
@@ -238,26 +286,20 @@ function Profile() {
             ) : (
               <>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">
-                    FastName : {user?.firstName}
-                  </p>
-                  <p className="delivery-a-inputs">
-                    LastName : {user?.lastName}
-                  </p>
+                  <p className="delivery-a-inputs">{user?.firstName}</p>
+                  <p className="delivery-a-inputs">{user?.lastName}</p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">Email : {user?.email}</p>
-                  <p className="delivery-a-inputs">Mobile : {user.mobileNo}</p>
+                  <p className="delivery-a-inputs"> {user?.email}</p>
+                  <p className="delivery-a-inputs"> {user.mobileNo}</p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">address : {user.address}</p>
-                  <p className="delivery-a-inputs">
-                    SecondAdress: {user.secondAddress}
-                  </p>
+                  <p className="delivery-a-inputs">{user.address}</p>
+                  <p className="delivery-a-inputs">{user.secondAddress}</p>
                 </div>
                 <div className="delivery-A-input-div">
-                  <p className="delivery-a-inputs">State : </p>
-                  <p className="delivery-a-inputs">Gender</p>
+                  <p className="delivery-a-inputs"> {user.State}</p>
+                  <p className="delivery-a-inputs"> {user.Gender}</p>
                 </div>
               </>
             )}

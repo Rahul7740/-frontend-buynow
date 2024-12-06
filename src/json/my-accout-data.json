@@ -1,10 +1,5 @@
 [
-    {
-        "img":"my-account-img-1.png",
-        "name":"Tiana Baptista",
-        "p":"tim.jennings@example.com",
-        "to":"/profile"
-    },
+    
     {
         "img":"my-account-img-2.png",
         "name":"My orders",
@@ -38,12 +33,6 @@
     {
         "img":"my-account-img-7.png",
         "name":"Login & Security",
-        "p":"Lorem ipsum dolor sit amet, consectetur ..",
-        "to":""
-    },
-    {
-        "img":"my-account-img-8.png",
-        "name":"Logout",
         "p":"Lorem ipsum dolor sit amet, consectetur ..",
         "to":""
     }

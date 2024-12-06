@@ -69,7 +69,7 @@ function App() {
           <Route path="/deliveryAdress" element={<DeliveryAdress />} />
           <Route path="/orderSummary" element={<OrderSummary />} />
           <Route path="/paymentOption" element={<PaymentOption />} />
-          <Route path="/myAccount" element={<MyAccount />} />
+          {/* <Route path="/myAccount" element={<MyAccount />} /> */}
           <Route path="/myOrders" element={<MyOrders />} />
           <Route path="/wishList" element={<WishList />} />
           <Route path="/returnOrder" element={<ReturnOrder />} />
@@ -82,9 +82,14 @@ function App() {
               <Route path="/resetPassword" element={<ResetPassword />} />
               <Route path="/passwordResetOtp" element={<PasswordResetOtp />} />
               <Route path="/enterNewPassword" element={<EnterNewPassword />} />
+              <Route path="/myAccount" element={<Login />} />
+              <Route path="/profile" element={<Login />} />
             </>
           ) : (
-            <Route path="/profile" element={<Profile />} />
+            <>
+              <Route path="/profile" element={<Profile />} />
+            <Route path="/myAccount" element={<MyAccount />} />
+            </>
           )}
         </Routes>
         <Footer />
