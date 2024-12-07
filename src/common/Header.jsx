@@ -77,11 +77,34 @@ function Header() {
   }, [data]);
 
   const user = localStorage.getItem("user");
-  
+
   function logoutfucntion() {
     localStorage.removeItem("user");
     window.location.reload();
   }
+  const [userData, setUserData] = useState("");
+  useEffect(() => {
+    let id = JSON.parse(localStorage.getItem("user"));
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:5000/api/user/getSingleUser/${id.id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        const json = await response.json();
+
+        setUserData(json);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <>
       <div className="header-top-bar-sectoin ">
@@ -154,11 +177,28 @@ function Header() {
                   }}
                   className="menu-user-div"
                 >
-                  <img src={SvgPath.menuUserImg} alt="user" />
-                  <div>
-                    <h3>Tiana Baptista</h3>
-                    <p>tim.jennings@example.com</p>
-                  </div>
+                  {userData?.profile ? (
+                    <img
+                      className="my-account-contents-images max-w-[40px] w-full h-[40px]  rounded-full"
+                      src={`http://localhost:5000/api/products/uploads/${userData?.profile}`}
+                      // src={require(``)}
+                      alt="my-myAccount"
+                    />
+                  ) : (
+                    <h1 className="max-w-[40px] h-[40px]  w-full  rounded-full bg-yellow-300 content-center text-center text-[20px] sm:text-[30px] md:text-[40px] lg:text-[60px] font-black">
+                      {userData?.firstName?.slice(0, 1).toUpperCase()}
+                    </h1>
+                  )}
+                  {user ? (
+                    <div>
+                      <h3>{userData.firstName}</h3>
+                      <p>{userData.email}</p>
+                    </div>
+                  ) : (
+                    <div>
+                      <h3 className="flex gap-3">Login first <Link to={"/profile"}>Enter</Link></h3>
+                    </div>
+                  )}
                 </Link>
                 <button
                   onClick={() => {

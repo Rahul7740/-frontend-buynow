@@ -133,7 +133,7 @@ function Profile() {
       );
 
       if (response.ok) {
-        toast.success("Upload successful");
+        // toast.success("Upload successful");
         setDataReload(!dataReload);
         setProfilePopup(false);
       } else {
@@ -193,9 +193,17 @@ function Profile() {
                 Chose Image
               </button>
               <div
+                className={`fixed left-0 top-0 w-full h-full bg-black opacity-70 ${
+                  profilePopup ? "block" : "hidden"
+                }`}
+                onClick={() => {
+                  setProfilePopup(false);
+                }}
+              ></div>
+              <div
                 className={`fixed top-2/4 left-2/4 z-50 -translate-x-2/4 -translate-y-2/4  ${
                   profilePopup ? "inline-flex" : "hidden"
-                } w-auto items-center justify-center bg-white max-w-[400px] p-10 gap-10 flex-col rounded-md shadow-2xl border border-black`}
+                } w-auto items-center justify-center bg-white max-w-[400px] p-10 gap-10 flex-col rounded-md shadow-2xl `}
               >
                 <button
                   className="w-[20px] h-5 absolute top-3 right-3"
@@ -236,7 +244,7 @@ function Profile() {
                 onClick={() => {
                   setEdit(!edit);
                 }}
-                className="edit-btn"
+                className={`edit-btn ${edit ? "hidden" : "block"}`}
                 type="button"
               >
                 Edit

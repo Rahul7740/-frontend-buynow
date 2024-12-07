@@ -124,12 +124,12 @@
 .res-menu-bar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-300%);
+  left: 0;
+  transform: translateX(300%);
   background-color: white;
   z-index: 9999;
   height: 100%;
-  max-width: 660px;
+  max-width: 100%;
   margin: 0 auto;
   width: 100%;
   gap: 6px;
@@ -244,12 +244,12 @@
 .res-searchBar {
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-300%);
+  left: 0;
+  transform: translateX(300%);
   background-color: white;
   z-index: 9999;
   height: 100%;
-  max-width: 660px;
+  max-width: 100%;
   padding: 20px;
   margin: 0 auto;
   width: 100%;
@@ -536,7 +536,7 @@
 .header-cart-btn {
   position: relative;
 }
-.header-cart-btn:hover .header-cart-popup{
+.header-cart-btn:hover .header-cart-popup {
   opacity: 1;
   z-index: 99;
 }
@@ -565,7 +565,7 @@
   flex-direction: column;
   gap: 10px;
   padding-bottom: 20px;
-  border-bottom: 1px solid #574B9B1F;
+  border-bottom: 1px solid #574b9b1f;
 }
 .header-cart-popup-products {
   display: flex;
@@ -590,7 +590,7 @@
   letter-spacing: 0.17000000178813934px;
   color: #495f6a;
 }
-.cartPopup-btn{
+.cartPopup-btn {
   padding: 6px 10px;
   width: 100%;
 }
@@ -607,7 +607,7 @@
     display: none;
   }
   .showSearch {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
   .user-container {
     gap: 10px;
@@ -650,7 +650,7 @@
   }
 
   .show-navbar {
-    transform: translateX(-50%);
+    transform: translateX(0);
 
     transition: all 1s;
   }
@@ -675,21 +675,25 @@
   .menu-login-signUp-container {
     display: flex;
   }
-  @media (max-width: 410px) {
-    .header-user-btn {
-      display: none;
-    }
+  .accout-popup,
+  .header-cart-popup {
+    display: none;
   }
-  @media (max-width: 375px) {
-    .header-top-bar-sectoin {
-      font-size: 12px;
-      padding: 9px 0;
-    }
-    .header-topBar-Links {
-      font-size: 12px;
-    }
-    .header-section {
-      padding: 10px 0;
-    }
+}
+@media (max-width: 410px) {
+  .header-user-btn {
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  .header-top-bar-sectoin {
+    font-size: 12px;
+    padding: 9px 0;
+  }
+  .header-topBar-Links {
+    font-size: 12px;
+  }
+  .header-section {
+    padding: 10px 0;
   }
 }

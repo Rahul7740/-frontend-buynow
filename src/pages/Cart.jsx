@@ -21,12 +21,16 @@ function Cart() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id: id.id, qty: qty, price: id.colors[id.colorsSelect[0]].price }),
+        body: JSON.stringify({
+          id: id.id,
+          qty: qty,
+          price: id.colors[id.colorsSelect[0]].price,
+        }),
       });
       if (response.ok) {
         const messageData = await response.json();
         toast.success(messageData.message);
-        setReloadData(!reloadData);        
+        setReloadData(!reloadData);
       } else {
         const errorData = await response.json();
         toast.error(`${errorData.error || "Unknown error"}`);
@@ -48,9 +52,11 @@ function Cart() {
   function quntityPlus(e, id, idx) {
     const pElement = e.currentTarget.previousElementSibling;
     let currentQuantity = Number(pElement.innerHTML);
-    pElement.innerHTML = currentQuantity + 1;
-    updateQuantiy(id, pElement.innerHTML);
-    // priceHandle(id, pElement.innerHTML);
+    if (currentQuantity < 8) {
+      pElement.innerHTML = currentQuantity + 1;
+      updateQuantiy(id, pElement.innerHTML);
+      // priceHandle(id, pElement.innerHTML);
+    }
   }
 
   useEffect(() => {
@@ -100,7 +106,6 @@ function Cart() {
       fetchCartData();
     }
   }, [data]);
-
 
   const removeItem = async (id) => {
     try {
@@ -189,8 +194,7 @@ function Cart() {
                         <div className="style-collections display-none-950">
                           <span
                             style={{
-                              background:
-                                i.colorsSelect[index],
+                              background: i.colorsSelect[index],
                             }}
                             id="color1"
                           ></span>
@@ -228,9 +232,7 @@ function Cart() {
                   <div className="cart-products-price">
                     <h2>{`$${data[index]?.price}.00`}</h2>
                     <h1 className="hidden">
-                      {
-                        (subtotal += Number(data[index]?.price))
-                      }
+                      {(subtotal += Number(data[index]?.price))}
                     </h1>
                     <button
                       onClick={() => {

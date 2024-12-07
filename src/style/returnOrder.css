@@ -102,7 +102,7 @@
   opacity: 0;
 }
 .checkbox input:checked + div {
-  background-color: #574b9b8a;
+  background-color: #422659;
   border: 2px solid transparent;
 }
 .checkbox input:checked + div::after {
@@ -198,6 +198,7 @@
   }
   .returnInformation-contents {
     grid-template-columns: 1fr;
+    gap: 5px;
   }
   .upload-div div {
     align-items: start;
@@ -232,6 +233,6 @@
 
   .returnInformation-contents,
   .upload-div {
-    padding: 20px;
+    padding: 10px;
   }
 }
