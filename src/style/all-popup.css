@@ -16,6 +16,7 @@
   transform-origin: top;
   transition: opacity 0.3s ease-in-out transform 0.3s ease-in-out,
     z-index 0.3s ease-in-out, box-shadow 0s ease-in-out;
+  /* transition-delay: 0.5s; */
 }
 .popup-show {
   z-index: 999;
@@ -54,7 +55,7 @@
   border-radius: 20px;
 }
 .all-popus-content-btns:hover {
-  background-color: #574B9B0A;
+  background-color: #574b9b0a;
   color: #422659;
 }
 .all-popus-content-btns:hover .right-arrrow {
@@ -73,7 +74,6 @@
 .all-popus-content-btns:hover .all-popus-content-links {
   color: #422659;
 }
-
 
 .all-popus-content-headings {
   padding: 0 16px;

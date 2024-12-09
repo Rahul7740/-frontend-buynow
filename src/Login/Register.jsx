@@ -54,7 +54,7 @@ function Register() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(!loading);
+    setLoading(true);
 
     try {
       const response = await fetch("http://localhost:5000/api/user/create", {
@@ -76,7 +76,7 @@ function Register() {
     } catch (error) {
       toast.error("Error submitting the form");
     } finally {
-      setLoading(!loading);
+      setLoading(false);
     }
   };
 

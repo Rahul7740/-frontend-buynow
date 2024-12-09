@@ -8,6 +8,7 @@ import selects from "../json/persnal-imforation-selects.json";
 import SelectTag from "../snippets/SelectTag";
 // import TextInputs from "../snippets/TextInputs";
 import { toast } from "react-toastify";
+import Loader from "../snippets/Loader";
 
 function Profile() {
   let localStorage_User = JSON.parse(localStorage.getItem("user"));
@@ -147,6 +148,7 @@ function Profile() {
 
   return (
     <section className="all-sections">
+      {/* <Loader /> */}
       <div className="container">
         <div className="sections-header">
           <h2>My Account</h2>

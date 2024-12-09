@@ -30,6 +30,7 @@ import EnterNewPassword from "./Login/EnterNewPassword";
 import ScrollToTop from "./snippets/ScrollToTop";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Hook from "./pages/hook";
 
 function App() {
   let user = localStorage.getItem("user");
@@ -89,6 +90,7 @@ function App() {
             <>
               <Route path="/profile" element={<Profile />} />
             <Route path="/myAccount" element={<MyAccount />} />
+            <Route path="/hook" element={<Hook />} />
             </>
           )}
         </Routes>

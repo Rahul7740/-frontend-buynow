@@ -41,7 +41,7 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(!loading);
+    setLoading(true);
 
     try {
       const response = await fetch("http://localhost:5000/api/user/login", {
@@ -69,7 +69,7 @@ function Login() {
     } catch (error) {
       toast.error("Error submitting the form");
     } finally {
-      setLoading(!loading);
+      setLoading(false);
     }
   };
 

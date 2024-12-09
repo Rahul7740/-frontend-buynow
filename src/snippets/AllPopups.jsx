@@ -8,7 +8,7 @@ function AllPopups() {
   const { popup, setPopup } = usePopup()
   return (
     <>
-      <div className={`all-popus ${popup} ${popup === 225 || typeof popup === "string" ? "popup-show" : ""}`} onMouseOver={() => { setPopup(popup) }} onMouseLeave={() => { setPopup(11) }} style={{ width: popup === 225 ? "auto" : "100%" }} >
+      <div className={`all-popus ${popup} ${popup === 225 || typeof popup === "string" ? "popup-show" : ""}`} onMouseOver={() => { setPopup(popup) }} onMouseLeave={() => {setPopup(11)}} style={{ width: popup === 225 ? "auto" : "100%" }} >
         <div className="all-popus-container">
           {
             popupContects[typeof popup === "string" ? popup : " "].map((item, index) => (
