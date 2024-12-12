@@ -461,7 +461,7 @@
   position: absolute;
 }
 .serach-categorys::-webkit-scrollbar-thumb {
-  background-color: #6a4949;
+  background-color: #495F6A;
   width: 4px;
   border-radius: 30px;
 }

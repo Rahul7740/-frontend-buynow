@@ -15,6 +15,17 @@ import Checkbox from "./../snippets/Checkbox";
 function DeliveryAdress() {
   const [Address, setAddress] = useState(false);
   const [show, setshow] = useState(false);
+  const [selectedValues, setSelectedValues] = useState({
+    State: "City,State",
+    Country: "Country",
+  });
+
+  const handleSelectChange = (head, value) => {
+    setSelectedValues((prevState) => ({
+      ...prevState,
+      [head]: value, // Update the selected value for the specific "head"
+    }));
+  };
   return (
     <>
       <section className="all-sections">
@@ -105,9 +116,17 @@ function DeliveryAdress() {
                   <TextInputs name="PIN Code" type="number" />
                 </div>
                 <div className="delivery-A-input-div">
-                  {selects.map((i, index) => (
+                  {selects.map((item, index) => (
                     <Fragment key={index}>
-                      <SelectTag name={i.head} content={i.options} />
+                      <SelectTag
+                        key={item.head}
+                        name={item.head}
+                        content={item.options}
+                        value={selectedValues[item.head]} // Pass selected value
+                        onChange={(value) =>
+                          handleSelectChange(item.head, value)
+                        } // Pass function to handle changes
+                      />
                     </Fragment>
                   ))}
                 </div>

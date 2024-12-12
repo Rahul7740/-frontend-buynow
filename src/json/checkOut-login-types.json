@@ -1,11 +1,13 @@
 [
     {
         "name":"Register",
-        "img":"checkOut-register-icon.svg"
+        "img":"checkOut-register-icon.svg",
+        "path":"/register"
     },
     {
         "name":"Login",
-        "img":"checkOut-Login-icon.svg"
+        "img":"checkOut-Login-icon.svg",
+        "path":"/login"
     },
     {
         "name":"Google",

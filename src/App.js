@@ -66,7 +66,6 @@ function App() {
           <Route path="/contectUS" element={<ContactUS />} />
           <Route path="/productDetail/:id" element={<ProductDetail />} />
           <Route path="/cart" element={<Cart />} />
-          <Route path="/checkout" element={<Checkout />} />
           <Route path="/deliveryAdress" element={<DeliveryAdress />} />
           <Route path="/orderSummary" element={<OrderSummary />} />
           <Route path="/paymentOption" element={<PaymentOption />} />
@@ -85,12 +84,14 @@ function App() {
               <Route path="/enterNewPassword" element={<EnterNewPassword />} />
               <Route path="/myAccount" element={<Login />} />
               <Route path="/profile" element={<Login />} />
+              <Route path="/checkout" element={<Checkout />} />
             </>
           ) : (
             <>
               <Route path="/profile" element={<Profile />} />
-            <Route path="/myAccount" element={<MyAccount />} />
-            <Route path="/hook" element={<Hook />} />
+              <Route path="/myAccount" element={<MyAccount />} />
+              <Route path="/hook" element={<Hook />} />
+              <Route path="/checkout" element={<DeliveryAdress />} />
             </>
           )}
         </Routes>

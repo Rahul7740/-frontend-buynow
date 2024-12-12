@@ -199,6 +199,7 @@ function Register() {
                   type="submit"
                   name={loading ? "Wait": item.btnName}
                   class={` ${passMatch ? "opacity-100":"opacity-50"}` }
+                  disable = {!passMatch}
                 />
               </form>
             ))}

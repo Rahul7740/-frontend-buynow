@@ -47,7 +47,7 @@ function Checkout() {
                         <div className="checkOut-login-section">
                             {
                                 loginTypes.map((i, index) => (
-                                    <Link to={"/deliveryAdress"} key={index} className="checkout-login-types">
+                                    <Link to={i.path} key={index} className="checkout-login-types">
                                         <div>
                                             <img src={require(`../assets/svg/${i.img}`)} alt="logins" />
                                             <h3>{i.name}</h3>

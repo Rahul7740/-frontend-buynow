@@ -60,34 +60,6 @@
 
 
 
-.loginRegister-imgs {
-  animation: loginRegisterImgAnima 0.5s ease-in-out forwards;
-  transform-origin: top;
-}
-
-@keyframes loginRegisterImgAnima {
-  0% {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: scaleY(1);
-  }
-}
-@keyframes loginRegisterinputsAnima {
-  0% {
-    transform: translateY(50px);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
 
 .loginRegister-policy-forget {
   display: flex;
