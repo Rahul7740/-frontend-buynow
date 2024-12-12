@@ -426,6 +426,58 @@
 .language-popup-searchBar input::placeholder {
   color: #abb5ba;
 }
+/* =====header serach-category-popup ======= */
+.serach-category-popup{
+  min-width: 230px;
+  height: 352px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, 6%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 99;
+  box-shadow: 0px 0px 42px 0px #b0bec533, 0px 22px 35px 3px #b0bec524,
+  0px 10px 14px -4px #b0bec533;
+  padding: 20px;
+  padding-right: 4px;
+}
+.serach-categorys{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: auto;
+  background-color: white;
+  width: 100%;
+  padding-right: 8px;
+}
+.serach-categorys::-webkit-scrollbar {
+  width: 4px;
+  background-color: #4226590a;
+  border-radius: 30px;
+  position: absolute;
+}
+.serach-categorys::-webkit-scrollbar-thumb {
+  background-color: #6a4949;
+  width: 4px;
+  border-radius: 30px;
+}
+.serach-categorys div{
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.1s ease-in-out;
+  border-radius: 20px;
+}
+.serach-categorys div:hover {
+  background-color: #574b9b05;
+}
+
+
 /* =====header-user-btn====== */
 .header-user-btn {
   position: relative;

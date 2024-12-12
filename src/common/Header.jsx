@@ -12,6 +12,7 @@ import accoutPopu from "../json/accoutPopupContent.json";
 import AllButtons from "../snippets/AllButtons";
 import AllPopups from "../snippets/AllPopups";
 import { usePopup } from "../contaxt/PopupContext";
+import chategorys from "../json/search-categoryPupup.json";
 function Header() {
   // cart products popup
   const [data, setData] = useState([]);
@@ -20,6 +21,9 @@ function Header() {
 
   const [menu, setMenu] = useState(false);
   const [search, setSearch] = useState(false);
+  const [serachPopup, setSearchPopup] = useState(false);
+  const [resSearchBarCategory, setResSearchBarCategory] = useState(false);
+  const [searchIndex, setSearchIndex] = useState(0);
   const [languag, setLanguag] = useState("hi.svg");
   const [languagSearch, setLanguagSearch] = useState("");
   const [langaugPopup, setLanguagPopup] = useState(false);
@@ -196,7 +200,9 @@ function Header() {
                     </div>
                   ) : (
                     <div>
-                      <h3 className="flex gap-3">Login first <Link to={"/profile"}>Enter</Link></h3>
+                      <h3 className="flex gap-3">
+                        Login first <Link to={"/profile"}>Enter</Link>
+                      </h3>
                     </div>
                   )}
                 </Link>
@@ -250,7 +256,7 @@ function Header() {
               </div>
             </div>
             <div className="searchBar-and-user-container">
-              <div className={`searchBar-container`}>
+              <div className={`searchBar-container relative`}>
                 <div>
                   <img src={SvgPath.searchIcon} alt="searchIcon" />
                   <input type="text" placeholder="Search" />
@@ -270,14 +276,71 @@ function Header() {
                   </button>
                 </div>
 
-                <button className="search-all-btn">
-                  ALL
-                  <img src={SvgPath.downArrowWhite} alt="downArrow" />
+                <button
+                  className="search-all-btn"
+                  onMouseOver={() => {
+                    setSearchPopup(true);
+                  }}
+                  onMouseLeave={() => {
+                    setSearchPopup(false);
+                  }}
+                >
+                  {chategorys[searchIndex].name.split(" ")[0]}
+                  <img
+                    className={`transition-all duration-200 ${
+                      serachPopup ? "rotate-180" : ""
+                    }`}
+                    src={SvgPath.downArrowWhite}
+                    alt="downArrow"
+                  />
                 </button>
+                <div
+                  onMouseOver={() => {
+                    setSearchPopup(true);
+                  }}
+                  onMouseLeave={() => {
+                    setSearchPopup(false);
+                  }}
+                  style={{
+                    transition: "all 0.2s",
+                    opacity: serachPopup ? "1" : "0",
+                    zIndex: serachPopup ? "9" : "-4",
+                  }}
+                  className="serach-category-popup"
+                >
+                  <div className="serach-categorys">
+                    {chategorys.map((item, index) => (
+                      <div
+                        onClick={() => {
+                          setSearchIndex(index);
+                        }}
+                        className={`cursor-pointer w-full ${
+                          index === searchIndex ? "language-selected" : ""
+                        }`}
+                        key={index}
+                      >
+                        <h3
+                          style={{
+                            color:
+                              index === searchIndex ? "#67517A" : "#495F6A",
+                          }}
+                        >
+                          {item.name}
+                        </h3>
+                        <img
+                          className="right-arrrow"
+                          src={
+                            require(`../assets/svg/right-victor-perpul.svg`)
+                              .default
+                          }
+                          alt="go"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
-              <div
-                className={`res-searchBar  ${search === true && "showSearch"}`}
-              >
+              <div className={`res-searchBar  ${search && "showSearch"}`}>
                 <div className="res-search-head">
                   <button
                     onClick={() => {
@@ -290,32 +353,104 @@ function Header() {
                     <img src={SvgPath.searchIcon} alt="searchIcon" />
                     <input type="text" placeholder="Search" />
                   </div>
-                  <button>
-                    <img
-                      src={
-                        require("../assets/svg/res-search-menu-btn.svg").default
-                      }
-                      alt="serach-menu"
-                    />
+                  <button
+                    onClick={() => {
+                      setResSearchBarCategory(!resSearchBarCategory);
+                    }}
+                  >
+                    {resSearchBarCategory ? (
+                      <svg
+                        width="48"
+                        height="48"
+                        viewBox="0 0 48 48"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect
+                          width="48"
+                          height="48"
+                          rx="24"
+                          fill="#574B9B"
+                          fill-opacity="0.04"
+                        />
+                        <path
+                          d="M25.7066 16.7926C24.9267 15.5164 23.0733 15.5164 22.2934 16.7926L20.3595 19.9571C19.5451 21.2898 20.5043 23 22.0661 23H25.9339C27.4957 23 28.4549 21.2898 27.6404 19.9571L25.7066 16.7926ZM23.0737 19.3487C23.4974 18.6586 24.5007 18.6598 24.9228 19.3509C25.364 20.0733 24.8441 21 23.9976 21C23.15 21 22.6303 20.0711 23.0737 19.3487ZM29.5 25C27.01 25 25 27.01 25 29.5C25 31.99 27.01 34 29.5 34C31.99 34 34 31.99 34 29.5C34 27.01 31.99 25 29.5 25ZM29.5 32C28.12 32 27 30.88 27 29.5C27 28.12 28.12 27 29.5 27C30.88 27 32 28.12 32 29.5C32 30.88 30.88 32 29.5 32ZM15 31.5C15 32.6046 15.8954 33.5 17 33.5H21C22.1046 33.5 23 32.6046 23 31.5V27.5C23 26.3954 22.1046 25.5 21 25.5H17C15.8954 25.5 15 26.3954 15 27.5V31.5ZM17 29.5C17 28.3954 17.8954 27.5 19 27.5C20.1046 27.5 21 28.3954 21 29.5C21 30.6046 20.1046 31.5 19 31.5C17.8954 31.5 17 30.6046 17 29.5Z"
+                          fill="#67517A"
+                        />
+                      </svg>
+                    ) : (
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        width="48"
+                        height="48"
+                        rx="24"
+                        fill="#574B9B"
+                      >
+                        <path
+                          d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"
+                          fill="#F8F8FB"
+                        />
+                        <path
+                          d="M8.96967 8.96967C9.26256 8.67678 9.73744 8.67678 10.0303 8.96967L12 10.9394L13.9697 8.96969C14.2626 8.6768 14.7374 8.6768 15.0303 8.96969C15.3232 9.26258 15.3232 9.73746 15.0303 10.0304L13.0607 12L15.0303 13.9696C15.3232 14.2625 15.3232 14.7374 15.0303 15.0303C14.7374 15.3232 14.2625 15.3232 13.9696 15.0303L12 13.0607L10.0304 15.0303C9.73746 15.3232 9.26258 15.3232 8.96969 15.0303C8.6768 14.7374 8.6768 14.2626 8.96969 13.9697L10.9394 12L8.96967 10.0303C8.67678 9.73744 8.67678 9.26256 8.96967 8.96967Z"
+                          fill="#67517A"
+                        />
+                      </svg>
+                    )}
                   </button>
                 </div>
-                <p className="serach-recent-text">Recent</p>
-                <div className="serach-recent-container">
-                  {searchRecents.map((item, index) => (
-                    <div key={index} className="search-recnets">
-                      <p>{item.name}</p>
-                      <button>
+                {resSearchBarCategory ? (
+                  <>
+                    <p className="serach-recent-text">Recent</p>
+                    <div className="serach-recent-container">
+                      {searchRecents.map((item, index) => (
+                        <div key={index} className="search-recnets">
+                          <p>{item.name}</p>
+                          <button>
+                            <img
+                              src={
+                                require("../assets/svg/serach-recents-cut-btn.svg")
+                                  .default
+                              }
+                              alt="cut"
+                            />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  </>
+                ) : (
+                  <div className="serach-categorys">
+                    {chategorys.map((item, index) => (
+                      <div
+                        onClick={() => {
+                          setSearchIndex(index);
+                        }}
+                        className={`cursor-pointer w-full ${
+                          index === searchIndex ? "language-selected" : ""
+                        }`}
+                        key={index}
+                      >
+                        <h3
+                          style={{
+                            color:
+                              index === searchIndex ? "#67517A" : "#495F6A",
+                          }}
+                        >
+                          {item.name}
+                        </h3>
                         <img
+                          className="right-arrrow"
                           src={
-                            require("../assets/svg/serach-recents-cut-btn.svg")
+                            require(`../assets/svg/right-victor-perpul.svg`)
                               .default
                           }
-                          alt="cut"
+                          alt="go"
                         />
-                      </button>
-                    </div>
-                  ))}
-                </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="user-container">
                 <button
@@ -360,8 +495,8 @@ function Header() {
                   <div
                     style={{
                       transition: "all 0.2s",
-                      opacity: langaugPopup === true ? "1" : "0",
-                      zIndex: langaugPopup === true ? "999999" : "-444",
+                      opacity: langaugPopup ? "1" : "0",
+                      zIndex: langaugPopup ? "9" : "-4",
                     }}
                     className="language-popup"
                   >

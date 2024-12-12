@@ -1,0 +1,39 @@
+[
+  {
+    "name": "All Type",
+    "select": true
+  },
+  {
+    "name": "Mobiles"
+  },
+  {
+    "name": "Laptops"
+  },
+  {
+    "name": "Watches"
+  },
+  {
+    "name": "Tablets"
+  },
+  {
+    "name": "Headphones"
+  },
+  {
+    "name": "Printers"
+  },
+  {
+    "name": "Gaming"
+  },
+  {
+    "name": "Toys"
+  },
+  {
+    "name": "Computers"
+  },
+  {
+    "name": "Keyboards"
+  },
+  {
+    "name": "Printers"
+  }
+]
